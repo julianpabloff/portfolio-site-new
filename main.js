@@ -1,13 +1,4 @@
 window.addEventListener('load', function() {
-	const button = document.getElementById('button');
-	const popup = document.getElementById('pop-up');
-	let hidden = true;
-	button.addEventListener('mousedown', () => {
-		popup.style.opacity = hidden * 1;
-		popup.style.height = (300 * hidden).toString() + 'px';
-		hidden = !hidden;
-	});
-
 	const linkList = document.getElementById('link-list');
 	const links = Array.from(linkList.children);
 	const highlight = document.getElementById('highlight');
