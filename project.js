@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
 		const movingDiv = children.item(1);
 		const expand = children.item(2);
 		const seeMore = expand.children.item(0);
-		project.addEventListener('mouseenter', () => {
+		project.addEventListener('mouseover', () => {
 			movingDiv.style.bottom = '200px';
 			seeMore.style.opacity = '1';
 		});
@@ -17,31 +17,33 @@ window.addEventListener('load', function() {
 			console.log('See more');
 		});
 
-		/*
 		const techIconsDiv = movingDiv.children.item(0).children.item(1);
-		// const icons = Array.from(techIconsDiv.children);
 		const icons = techIconsDiv.children;
-		// const labels = icons.pop();
-		const labels = techIconsDiv.lastElementChild;
-		console.log(icons);
-		console.log(labels);
-		for (let i = 0; i < icons.length - 1; i++) {
-			let img = icons[i];
-			let label = labels.children.item(i);
-			img.addEventListener('mouseenter', e => {
-				label.style.opacity = '1';
-			});
-			img.addEventListener('mousemove', e => {
-				// console.log(e.offsetX.toString() + ', ' + e.offsetY.toString());
-				label.style.left = (e.offsetX + (36 * i) + 20).toString() + 'px';
-				label.style.top = (e.offsetY - 50).toString() + 'px';
-			});
-			img.addEventListener('mouseleave', e => {
-				label.style.opacity = '0';
-				label.style.left = '0';
-				label.style.top = '0';
-			});
+		let label = document.getElementById('tech-label');
+
+		function handleLabelPosition(event) {
+			label.style.left = (event.pageX + 15).toString() + 'px';
+			label.style.top = (event.pageY - 35).toString() + 'px';
 		}
-		*/
+		function handleLabelContent() {
+			label.innerHTML = this.className;
+		}
+		function labelOn() {
+			window.addEventListener('mousemove', handleLabelPosition);
+			label.style.transition = 'opacity 0.2s';
+			label.style.opacity = '1';
+			for (let icon of icons)
+				icon.addEventListener('mouseenter', handleLabelContent);
+		}
+		function labelOff() {
+			window.removeEventListener('mousemove', handleLabelPosition);
+			label.style.transition = 'none';
+			label.style.opacity = '0';
+			for (let icon of icons) 
+				icon.removeEventListener('mouseenter', handleLabelContent);
+		}
+
+		techIconsDiv.addEventListener('mouseenter', labelOn);
+		techIconsDiv.addEventListener('mouseleave', labelOff);
 	}
 });

@@ -21,6 +21,15 @@ li {
 	user-select: none;
 	z-index: 1;
 }
+li.selected {
+	/* background-color: rgba(87, 100, 165, 0.2); */
+	/* background-color: var(--selected-color); */
+	/* outline: 3px solid #757ead; */
+	/* outline-offset: -3px; */
+	/* font-weight: bolder; */
+	/* text-decoration: underline; */
+	color: #c2c8eb;
+}
 
 div.bubble {
 	width: var(--list-element-width);
@@ -32,6 +41,8 @@ div.bubble {
 
 div#highlight{
 	background-color: var(--selected-color);
+	/* outline: 8px solid var(--selected-color); */
+	/* outline-offset: -8px; */
 }
 
 div#clickable {

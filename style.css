@@ -9,6 +9,7 @@
 	--list-element-width: 200px;
 	--list-height: 60px;
 	--list-radius: 30px;
+	--page-color: #1d2240;
 	--window-color: #14182d;
 	--selected-color: #28305a;
 }
@@ -17,7 +18,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #1d2240;
+	background-color: var(--page-color);
 	font-family: 'Rubik', sans-serif;
 }
 

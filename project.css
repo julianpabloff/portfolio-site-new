@@ -52,27 +52,29 @@ div.banner {
 	z-index: 2;
 }
 div.banner h2 {
-	font-size: 26px;
+	font-size: 30px;
 }
 div.tech-icons {
-	/* position: relative; */
 	font-size: 0;
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 10px;
 }
 div.tech-icons img {
-	height: 30px;
-	/* width: 26px; */
-	margin-left: 10px;
+	height: 35px;
 }
-/* div.tech-labels { */
-/* 	position: absolute; */
-/* } */
-/* div.tech-labels p { */
-/* 	position: absolute; */
-/* 	top: 0; */
-/* 	font-size: 18px; */
-/* 	opacity: 0; */
-/* 	z-index: 3; */
-/* } */
+p#tech-label {
+	position: absolute;
+	left: 0;
+	font-size: 20px;
+	color: white;
+	background-color: var(--selected-color);
+	padding: 8px 12px;
+	border-radius: 5px;
+	z-index: 3;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
 
 div.description {
 	background-color: rgba(20, 24, 45, 0.8);
