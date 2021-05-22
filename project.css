@@ -72,8 +72,7 @@ p#tech-label {
 	padding: 8px 12px;
 	border-radius: 5px;
 	z-index: 3;
-	opacity: 0;
-	transition: opacity 0.2s;
+	display: none;
 }
 
 div.description {

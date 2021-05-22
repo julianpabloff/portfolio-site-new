@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
 			movingDiv.style.bottom = '200px';
 			seeMore.style.opacity = '1';
 		});
-		project.addEventListener('mouseleave', () => {
+		project.addEventListener('mouseout', () => {
 			movingDiv.style.bottom = '0px';
 			seeMore.style.opacity = '0';
 		});
@@ -19,26 +19,25 @@ window.addEventListener('load', function() {
 
 		const techIconsDiv = movingDiv.children.item(0).children.item(1);
 		const icons = techIconsDiv.children;
-		let label = document.getElementById('tech-label');
+		const label = document.getElementById('tech-label');
+		let labelStyle = label.style;
 
 		function handleLabelPosition(event) {
-			label.style.left = (event.pageX + 15).toString() + 'px';
-			label.style.top = (event.pageY - 35).toString() + 'px';
+			labelStyle.left = (event.pageX + 15).toString() + 'px';
+			labelStyle.top = (event.pageY - 35).toString() + 'px';
 		}
 		function handleLabelContent() {
+			labelStyle.display = 'initial';
 			label.innerHTML = this.className;
 		}
 		function labelOn() {
 			window.addEventListener('mousemove', handleLabelPosition);
-			label.style.transition = 'opacity 0.2s';
-			label.style.opacity = '1';
 			for (let icon of icons)
 				icon.addEventListener('mouseenter', handleLabelContent);
 		}
 		function labelOff() {
 			window.removeEventListener('mousemove', handleLabelPosition);
-			label.style.transition = 'none';
-			label.style.opacity = '0';
+			labelStyle.display = 'none';
 			for (let icon of icons) 
 				icon.removeEventListener('mouseenter', handleLabelContent);
 		}
