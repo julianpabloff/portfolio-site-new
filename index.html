@@ -4,76 +4,86 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 	<title>Julian Pabloff - Full Stack Developer</title>
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="links.css">
-	<link rel="stylesheet" href="project.css">
-	<script src="main.js"></script>
-	<script src="project.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/links.css">
+	<link rel="stylesheet" href="css/project.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script src="js/main.js"></script>
+	<script src="js/project.js"></script>
 </head>
 
 <body>
-	<ul id="link-list">
-		<div id="clickable" class="bubble"><a href="" target="_blank"><span></span></a></div>
-		<div id="highlight" class="bubble"></div>
-		<li class="selected">Projects</li>
-		<li>Resume</li>
-		<li>Contact</li>
-	</ul>
-	<div class="project-container">
-		<div class="project">
-			<div id="ratscrew" class="thumbnail"></div>
-			<div class="moving-div">
-				<div class="banner">
-					<h2>Ratscrew</h2>
-					<div class="tech-icons">
-						<img class="Javascript" src="img/technologies/javascript.png">
-						<img class="Node.js" src="img/technologies/nodejs.png">
+	<div id="main-container">
+		<nav id="link-list">
+			<!-- <div id="clickable" class="bubble"><a href="" target="_blank"><span></span></a></div> -->
+			<a>Projects</a>
+			<a>Resume</a>
+			<a>Contact</a>
+			<div id="highlight"></div>
+		</nav>
+		<div class="project-container">
+			<div class="project" id="Ratscrew">
+				<div id="ratscrew-thumbnail" class="thumbnail"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Ratscrew</h2>
+						<div class="tech-icons">
+							<img class="Javascript" src="img/technologies/javascript.png">
+							<img class="Node.js" src="img/technologies/nodejs.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>A multiplayer card game application that mimics the game Egyptian Ratscrew. It supports 2 to 4 players and runs in the terminal.</p>
 					</div>
 				</div>
-				<div class="description">
-					<p>A multiplayer card game application that mimics the game Egyptian Ratscrew. It supports 2 to 4 players and runs in the terminal.</p>
+				<div class="expand-button">
+					<p>See more</p>
 				</div>
 			</div>
-			<div class="expand-button">
-				<p>See more</p>
+			<div class="project" id="Bomberman">
+				<div id="bomberman-thumbnail" class="thumbnail"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Bomberman</h2>
+						<div class="tech-icons">
+							<img class="socket.io" src="img/technologies/socketio.png">
+							<img class="Node.js" src="img/technologies/nodejs.png">
+							<img class="Express" src="img/technologies/express.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>Inspired by a classic videogame, this app is a multiplayer game where you try to blow up the other players to win.</p>
+					</div>
+				</div>
+				<div class="expand-button">
+					<p>See more</p>
+				</div>
+			</div>
+			<div class="project" id="Solitaire">
+				<div id="solitaire-thumbnail" class="thumbnail"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Solitaire</h2>
+						<div class="tech-icons">
+							<img class="Javascript" src="img/technologies/javascript.png">
+							<img class="Node.js" src="img/technologies/nodejs.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>A fully functional solitaire application that runs in the terminal. Features include color themes, and vim key support for fast gameplay.</p>
+					</div>
+				</div>
+				<div class="expand-button">
+					<p>See more</p>
+				</div>
 			</div>
 		</div>
-		<div class="project">
-			<div id="bomberman" class="thumbnail"></div>
-			<div class="moving-div">
-				<div class="banner">
-					<h2>Bomberman</h2>
-					<div class="tech-icons">
-						<img class="socket.io" src="img/technologies/socketio.png">
-						<img class="Node.js" src="img/technologies/nodejs.png">
-						<img class="Express" src="img/technologies/express.png">
-					</div>
-				</div>
-				<div class="description">
-					<p>Inspired by a classic videogame, this app is a multiplayer game where you try to blow up the other players to win.</p>
-				</div>
-			</div>
-			<div class="expand-button">
-				<p>See more</p>
-			</div>
-		</div>
-		<div class="project">
-			<div id="solitaire" class="thumbnail"></div>
-			<div class="moving-div">
-				<div class="banner">
-					<h2>Solitaire</h2>
-					<div class="tech-icons">
-						<img class="Javascript" src="img/technologies/javascript.png">
-						<img class="Node.js" src="img/technologies/nodejs.png">
-					</div>
-				</div>
-				<div class="description">
-					<p>A fully functional solitaire application that runs in the terminal. Features include color themes, and vim key support for fast gameplay.</p>
-				</div>
-			</div>
-			<div class="expand-button">
-				<p>See more</p>
-			</div>
+	</div>
+	<div id="modal-background">
+		<div id="project-modal">
+			<header>
+				<h1 id="modal-title">Ratscrew</h1>
+			</header>
 		</div>
 	</div>
 	<p id="tech-label"></p>

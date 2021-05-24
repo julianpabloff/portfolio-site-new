@@ -1,0 +1,35 @@
+div#modal-background {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.75);
+	opacity: 0;
+	z-index: 2;
+	position: absolute;
+	display: none;
+	justify-content: center;
+	overflow: auto;
+	/* transition: opacity 0.4s; */
+}
+div#project-modal {
+	/* width: calc(100% - 180px); */
+	/* height: 50vh; */
+	width: 750px;
+	height: 2000px;
+	color: white;
+	background-color: var(--page-color);
+	border-radius: 30px;
+	overflow: hidden;
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: 150px;
+	z-index: 3;
+	/* transition: top 0.4s; */
+}
+div#project-modal header {
+	background-color: var(--window-color);
+	padding: 25px;
+}
+div#project-modal h1 {
+	font-size: 40px
+}
