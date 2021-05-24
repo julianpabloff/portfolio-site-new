@@ -22,15 +22,15 @@ div.thumbnail {
 	/* justify-content: center; */
 	/* align-items: center; */
 }
-div#ratscrew-thumbnail {
+div.ratscrew-background {
 	background: url(../img/ratscrew.jpg) center;
 	background-size: cover;
 }
-div#bomberman-thumbnail {
+div.bomberman-background {
 	background: url(../img/bomberman.jpg) center;
 	background-size: cover;
 }
-div#solitaire-thumbnail {
+div.solitaire-background {
 	background: url(../img/solitaire.jpg) center;
 	background-size: cover;
 }

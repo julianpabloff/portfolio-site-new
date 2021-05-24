@@ -1,35 +1,99 @@
 div#modal-background {
 	width: 100vw;
-	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.75);
 	opacity: 0;
 	z-index: 2;
 	position: absolute;
 	display: none;
-	justify-content: center;
-	overflow: auto;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 160px;
+	/* overflow: auto; */
 	/* transition: opacity 0.4s; */
 }
-div#project-modal {
+div.modal {
 	/* width: calc(100% - 180px); */
 	/* height: 50vh; */
 	width: 750px;
-	height: 2000px;
+	height: min-content;
 	color: white;
 	background-color: var(--page-color);
 	border-radius: 30px;
-	overflow: hidden;
 	display: none;
 	flex-direction: column;
-	position: absolute;
+	position: relative;
+	overflow: hidden;
 	top: 150px;
 	z-index: 3;
-	/* transition: top 0.4s; */
+	transition: top 0.3s;
 }
-div#project-modal header {
-	background-color: var(--window-color);
-	padding: 25px;
+div.modal div.modal-image {
+	/* background: url(../img/ratscrew.jpg) center; */
+	/* background-size: cover; */
+	width: 100%;
+	height: 400px;
+	border-radius: 30px 30px 0 0;
 }
-div#project-modal h1 {
+div.modal div.modal-body {
+	height: 1000px;
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 30px;
+	/* background: url(../img/ratscrew.jpg) center; */
+	/* background-size: cover; */
+}
+div.modal div.modal-background {
+	/* background: url(../img/ratscrew.jpg) center; */
+	/* background-size: cover; */
+	transform: scale(1.05);
+	filter: blur(30px) brightness(.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+div.modal header {
+	background-color: var(--modal-body-color);
+	padding: 20px 25px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+div.modal h1 {
 	font-size: 40px
+}
+
+div.modal-tech-icons {
+	display: flex;
+	margin-bottom: 20px;
+}
+div.modal-tech-icon {
+	height: 56px;
+	display: flex;
+	align-items: center;
+	border-radius: 39px;
+	box-sizing: border-box;
+	padding: 10px;
+	margin-right: 20px;
+	background-color: var(--modal-body-color);
+}
+div.modal-tech-icon img {
+	height: 100%;
+}
+div.modal-tech-icon p {
+	font-size: 20px;
+	margin: 0 12px;
+}
+
+p.modal-description {
+	font-size: 20px;
+	background-color: var(--modal-body-color);
+	padding: 20px 25px;
+	border-radius: 30px;
 }
