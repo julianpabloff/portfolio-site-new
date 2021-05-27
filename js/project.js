@@ -2,24 +2,28 @@ window.addEventListener('load', function() {
 	const html = document.querySelector('html');
 	const body = document.getElementById('main-container');
 	const backdrop = document.getElementById('modal-background');
-	// const modal = document.getElementById('modal');
-	let modal;
-	// let modalStyle = modal.style;
 	let backdropStyle = backdrop.style;
-	backdropStyle.transition = 'opacity ' + '0.25s';
 
-	let modalTransition = 300;
-	// let modalTransitionString = (modalTransition / 1000).toString() + 's'
-	// modalStyle.transition = 'top ' + modalTransitionString;
-	let htmlScrollPosition = html.scrollTop;
+	let modal; let activeModal = null;
+	const modals = document.getElementById('modal-background').children;
+	let modalTransition = 300; // opacity transition
 
-	// const projectsData = [
-	// 	{ title: 'Ratscrew', technologies: ['Javascript', 'Node.js'] },
-	// 	{ title: 'Bomberman', technologies: ['socket.io', 'Node.js', 'Express'] },
-	// 	{ title: 'Solitaire', technologies: ['Javascript', 'Node.js'] }
-	// ];
+	let htmlScrollPosition = html.scrollTop; // remember where html was at
+
+	let waitToCollapse = false;
+	function collapseProject(p) {
+		console.log('Trying to collapse project shelf');
+		if (waitToCollapse) return;
+		let projectChildren = projects[p].children;
+		let movingDiv = projectChildren.item(1);
+		let seeMore = projectChildren.item(2).firstElementChild;
+		movingDiv.style.bottom = '0';
+		seeMore.style.opacity = '0';
+	}
+
 	const projects = document.querySelector('div.project-container').children;
-	for (let project of projects) {
+	for (let p = 0; p < projects.length; p++) {
+		let project = projects[p];
 		const children = project.children;
 		const movingDiv = children.item(1);
 		const expand = children.item(2);
@@ -28,22 +32,16 @@ window.addEventListener('load', function() {
 			movingDiv.style.bottom = '200px';
 			seeMore.style.opacity = '1';
 		});
-		// let waitToCollapse = false;
-		function collapseProject() {
-			// if (waitToCollapse) return;
-			movingDiv.style.bottom = '0';
-			seeMore.style.opacity = '0';
-		}
-		project.addEventListener('mouseleave', collapseProject);
+		project.addEventListener('mouseleave', () => collapseProject(p));
 		expand.addEventListener('click', () => {
-			modal = document.getElementById(project.id + '-modal');
+			modal = modals[p];
+			activeModal = p;
 			let modalStyle = modal.style;
-			console.log(html.scrollTop);
 			htmlScrollPosition = html.scrollTop;
 			body.style.top = '-' + html.scrollTop.toString() + 'px';
 			body.style.position = 'fixed';
 			html.scrollTop = 0;
-			// waitToCollapse = true;
+			waitToCollapse = true;
 			// setTimeout(() => {
 			// 	waitToCollapse = false;
 			// 	collapseProject();
@@ -54,7 +52,6 @@ window.addEventListener('load', function() {
 				modalStyle.display = 'flex';
 				setTimeout(() => {
 					modalStyle.top = '80px';
-					console.log(backdrop.scrollTop);
 				}, 1);
 			}, 1);
 		});
@@ -86,21 +83,30 @@ window.addEventListener('load', function() {
 
 		techIconsDiv.addEventListener('mouseenter', labelOn);
 		techIconsDiv.addEventListener('mouseleave', labelOff);
+
 	}
 
-	backdrop.addEventListener('click', () => {
-		// event.stopPropagation();
-		if (event.target != backdrop) return;
-		console.log('EXIT');
+	for (let modal of modals) {
+		const exitButton = modal.children.item(0).firstElementChild;
+		exitButton.addEventListener('click', closeModal, true);
+	}
+
+
+	function closeModal() {
 		backdropStyle.opacity = '0';
-		setTimeout(() => {
-			console.log('DONE');
+		setTimeout(() => { // wait for modal to fade away
 			// backdrop.scrollTop = 0;
 			body.style.position = 'static';
 			backdropStyle.display = 'none';
 			modal.style.top = '150px';
 			modal.style.display = 'none';
 			html.scrollTop = htmlScrollPosition;
+			waitToCollapse = false;
+			collapseProject(activeModal);
+			activeModal = null;
 		}, modalTransition);
+	}
+	backdrop.addEventListener('click', (event) => {
+		if (event.target == backdrop) closeModal();
 	}, true);
 });

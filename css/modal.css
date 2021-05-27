@@ -9,7 +9,7 @@ div#modal-background {
 	align-items: center;
 	padding-bottom: 160px;
 	/* overflow: auto; */
-	/* transition: opacity 0.4s; */
+	transition: opacity 0.25s;
 }
 div.modal {
 	/* width: calc(100% - 180px); */
@@ -33,6 +33,21 @@ div.modal div.modal-image {
 	width: 100%;
 	height: 400px;
 	border-radius: 30px 30px 0 0;
+	position: relative;
+}
+svg.modal-exit {
+	height: 25px;
+	background-color: var(--modal-body-color);
+	padding: 7px;
+	border-radius: 32px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+svg.modal-exit:hover {
+	background-color: var(--window-color);
 }
 div.modal div.modal-body {
 	height: 1000px;
@@ -74,10 +89,10 @@ div.modal-tech-icons {
 	margin-bottom: 20px;
 }
 div.modal-tech-icon {
-	height: 56px;
+	height: 60px;
 	display: flex;
 	align-items: center;
-	border-radius: 39px;
+	border-radius: 30px;
 	box-sizing: border-box;
 	padding: 10px;
 	margin-right: 20px;
