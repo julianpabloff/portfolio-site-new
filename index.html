@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/links.css">
 	<link rel="stylesheet" href="css/project.css">
 	<link rel="stylesheet" href="css/modal.css">
+	<link rel="stylesheet" href="css/contact.css">
 	<script src="js/main.js"></script>
 	<script src="js/project.js"></script>
 </head>
@@ -15,13 +16,12 @@
 <body>
 	<div id="main-container">
 		<nav id="link-list">
-			<!-- <div id="clickable" class="bubble"><a href="" target="_blank"><span></span></a></div> -->
-			<a class="selected">Projects</a>
-			<a>Resume</a>
-			<a>Contact</a>
+			<a class="selected" id="projects-nav">Projects</a>
+			<a id="resume-nav">Resume</a>
+			<a id="contact-nav">Contact</a>
 			<div id="highlight"></div>
 		</nav>
-		<div class="project-container">
+		<div id="project-container">
 			<div class="project" id="Ratscrew">
 				<div class="thumbnail ratscrew-background"></div>
 				<div class="moving-div">
@@ -78,6 +78,8 @@
 				</div>
 			</div>
 		</div>
+		<div id="resume-container"></div>
+		<div id="contact-container"></div>
 	</div>
 	<div id="modal-background">
 		<div id="Ratscrew-modal" class="modal">

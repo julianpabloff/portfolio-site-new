@@ -4,6 +4,24 @@ window.addEventListener('load', function() {
 	const highlight = document.getElementById('highlight');
 	let highlightStyle = highlight.style;
 
+	const linkContainers = {
+		projects: {link: 'project-nav', div: document.getElementById('project-container'), display: 'grid'},
+		resume: {link: 'resume-nav', div: document.getElementById('resume-container'), display: 'flex'},
+		contact: {link: 'contact-nav', div: document.getElementById('contact-container'), display: 'flex'}
+	}
+
+	let current = 'projects';
+
+	function switchTo(target) {
+		let selectedContainer = linkContainers[current];
+		selectedContainer.div.style.display = 'none';
+
+		selectedContainer = linkContainers[target];
+		selectedContainer.div.style.display = selectedContainer.display;
+
+		current = target;
+	}
+
 	let mouseInList = false;
 	linkList.addEventListener('mouseleave', () => {
 		highlightStyle.opacity = '0';
@@ -28,7 +46,12 @@ window.addEventListener('load', function() {
 		});
 
 		link.addEventListener('mousedown', () => {
-			console.log('Clicked on ' + link.innerHTML);
+			let target = link.id.substring(0, link.id.length - 4);
+			if (target != current) {
+				document.getElementById(current + '-nav').className = '';
+				link.className = 'selected';
+				switchTo(target);
+			}
 		});
 	}
 });

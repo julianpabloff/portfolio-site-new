@@ -1,0 +1,7 @@
+div#contact-container {
+	min-width: 800px;
+	height: 500px;
+	border-radius: 30px;
+	box-sizing: border-box;
+	background-color: var(--window-color);
+}

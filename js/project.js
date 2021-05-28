@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
 		seeMore.style.opacity = '0';
 	}
 
-	const projects = document.querySelector('div.project-container').children;
+	const projects = document.querySelector('div#project-container').children;
 	for (let p = 0; p < projects.length; p++) {
 		let project = projects[p];
 		const children = project.children;
