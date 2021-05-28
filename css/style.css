@@ -19,6 +19,7 @@ body {
 	font-family: 'Rubik', sans-serif;
 	overflow-x: hidden;
 	background-color: var(--page-color);
+	color: white;
 }
 div#main-container {
 	width: 100vw;

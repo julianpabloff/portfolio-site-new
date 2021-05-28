@@ -28,7 +28,7 @@ window.addEventListener('load', function() {
 		const movingDiv = children.item(1);
 		const expand = children.item(2);
 		const seeMore = expand.children.item(0);
-		project.addEventListener('mouseover', () => {
+		project.addEventListener('mouseover', function() {
 			movingDiv.style.bottom = '200px';
 			seeMore.style.opacity = '1';
 		});
@@ -94,6 +94,8 @@ window.addEventListener('load', function() {
 
 	function closeModal() {
 		backdropStyle.opacity = '0';
+		waitToCollapse = false;
+		setTimeout(() => collapseProject(activeModal), 100);
 		setTimeout(() => { // wait for modal to fade away
 			// backdrop.scrollTop = 0;
 			body.style.position = 'static';
@@ -101,8 +103,6 @@ window.addEventListener('load', function() {
 			modal.style.top = '150px';
 			modal.style.display = 'none';
 			html.scrollTop = htmlScrollPosition;
-			waitToCollapse = false;
-			collapseProject(activeModal);
 			activeModal = null;
 		}, modalTransition);
 	}
