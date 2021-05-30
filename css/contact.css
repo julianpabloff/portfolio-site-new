@@ -39,3 +39,9 @@ a.contact img, a.contact svg {
 	margin-right: 15px;
 }
 
+div#resume-container {
+	outline: 1px solid white;
+	width: 60vw;
+	height: calc(100vh - 50px);
+	display: none;
+}
