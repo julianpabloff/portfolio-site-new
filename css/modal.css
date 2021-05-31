@@ -30,6 +30,12 @@ div.modal {
 	transition: top 0.3s;
 }
 
+.modal-main-element {
+	margin-bottom: 25px;
+	padding: 20px 25px;
+	border-radius: var(--element-radius);
+}
+
 /* TOP IMAGE */
 div.modal div.modal-image {
 	/* background: url(../img/ratscrew.jpg) center; */
@@ -80,10 +86,7 @@ div.modal div.modal-background {
 /* HEADER */
 div.modal header {
 	background-color: var(--modal-body-color);
-	padding: 20px 25px;
-	margin-bottom: 20px;
 	box-sizing: border-box;
-	border-radius: 30px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -114,13 +117,13 @@ a.play:hover { background-color: #227e22; }
 /* TECH ICONS */
 div.modal-tech-icons {
 	display: flex;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 div.modal-tech-icon {
 	height: 60px;
 	display: flex;
 	align-items: center;
-	border-radius: 30px;
+	border-radius: var(--element-radius);
 	box-sizing: border-box;
 	padding: 12px;
 	margin-right: 20px;
@@ -137,12 +140,10 @@ div.modal-tech-icon p {
 /* GALLERY */
 div.modal-gallery {
 	width: 640px;
-	padding: 25px;
-	border-radius: var(--element-radius);
+	padding-bottom: 25px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--modal-body-color);
-	margin-bottom: 20px;
 }
 
 div.modal-gallery-navbar {
@@ -188,6 +189,7 @@ div.modal-gallery-navbar button:hover {
 
 div.modal-gallery-images {
 	display: flex;
+	border-radius: 25px;
 	overflow-x: hidden;
 }
 div.gallery-images-container {
@@ -202,7 +204,7 @@ div.gallery-images-container.loop {
 div.modal-gallery img {
 	width: 196.67px;
 	margin-right: 25px;
-	border-radius: var(--element-radius);
+	border-radius: 25px;
 	cursor: pointer;
 }
 div.modal-gallery img:hover {
@@ -213,6 +215,5 @@ div.modal-gallery img:hover {
 p.modal-description {
 	font-size: 20px;
 	background-color: var(--modal-body-color);
-	padding: 20px 25px;
-	border-radius: 30px;
+	margin: 0;
 }

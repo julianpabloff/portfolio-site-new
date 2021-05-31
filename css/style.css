@@ -32,6 +32,8 @@ div#main-container {
 	background-color: var(--page-color);
 }
 
+h2 { font-size: 32px; }
+
 a {
 	text-decoration: none;
 	color: white;

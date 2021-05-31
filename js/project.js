@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 	const backdrop = document.getElementById('modal-background');
 	let backdropStyle = backdrop.style;
 
-	let modal; let activeModal = null;
+	let activeModal; let activeModalIndex = null;
 	const modals = document.getElementById('modal-background').children;
 	let modalTransition = 300; // opacity transition
 
@@ -20,8 +20,17 @@ window.addEventListener('load', function() {
 		movingDiv.style.bottom = '0';
 		seeMore.style.opacity = '0';
 	}
+	function resetGallery(p) {
+		// I would have to make the gallery variables global
+		// for this to work bleh idk
+	}
 
 	const projects = document.querySelector('div#project-container').children;
+	const lefts = document.getElementsByClassName('gallery-left');
+	const rights = document.getElementsByClassName('gallery-right');
+	const galleries = document.getElementsByClassName('gallery-images-container');
+	const indicators = document.getElementsByClassName('indicator');
+
 	for (let p = 0; p < projects.length; p++) {
 		let project = projects[p];
 		const children = project.children;
@@ -63,9 +72,9 @@ window.addEventListener('load', function() {
 		techIconsDiv.addEventListener('mouseleave', labelOff);
 
 		expand.addEventListener('click', () => {
-			modal = modals[p];
-			activeModal = p;
-			let modalStyle = modal.style;
+			activeModal = modals[p];
+			activeModalIndex = p;
+			let modalStyle = activeModal.style;
 			htmlScrollPosition = html.scrollTop;
 			body.style.top = '-' + html.scrollTop.toString() + 'px';
 			body.style.position = 'fixed';
@@ -84,25 +93,17 @@ window.addEventListener('load', function() {
 				}, 1);
 			}, 1);
 		});
-	}
 
-	const lefts = document.getElementsByClassName('gallery-left');
-	const rights = document.getElementsByClassName('gallery-right');
-	const galleries = document.getElementsByClassName('gallery-images-container');
-	const indicators = document.getElementsByClassName('indicator');
-	console.log(galleries);
-	for (let m = 0; m < modals.length; m++) {
-		let modal = modals[m];
+		let modal = modals[p];
 		const exitButton = modal.children.item(0).firstElementChild;
 		exitButton.addEventListener('click', closeModal, true);
 
-		let gallery = galleries[m];
+		let gallery = galleries[p];
 		let page = 0;
 		let pageCount = Math.ceil(gallery.children.length / 3);
 		let galleryDisplacement = 0;
-		// console.log(pageCount);
 
-		let indicator = indicators[m];
+		let indicator = indicators[p];
 		for (let i = 0; i < pageCount; i++) {
 			let element = document.createElement('div');
 			element.className = 'indicator-element';
@@ -110,8 +111,7 @@ window.addEventListener('load', function() {
 			indicator.appendChild(element);
 		}
 
-		lefts[m].addEventListener('click', () => {
-			console.log('clicked left: ' + modal.id);
+		lefts[p].addEventListener('click', () => {
 			if (page > 0) {
 				galleryDisplacement -= 665;
 				gallery.style.right = galleryDisplacement.toString() + 'px';
@@ -122,8 +122,7 @@ window.addEventListener('load', function() {
 			}
 		});
 
-		rights[m].addEventListener('click', () => {
-			console.log('clicked right: ' + modal.id);
+		rights[p].addEventListener('click', () => {
 			if (page < pageCount - 1) {
 				galleryDisplacement += 665;
 				gallery.style.right = galleryDisplacement.toString() + 'px';
@@ -135,19 +134,18 @@ window.addEventListener('load', function() {
 		});
 	}
 
-
 	function closeModal() {
 		backdropStyle.opacity = '0';
 		waitToCollapse = false;
-		setTimeout(() => collapseProject(activeModal), 100);
+		setTimeout(() => collapseProject(activeModalIndex), 100);
 		setTimeout(() => { // wait for modal to fade away
 			// backdrop.scrollTop = 0;
 			body.style.position = 'static';
 			backdropStyle.display = 'none';
-			modal.style.top = '150px';
-			modal.style.display = 'none';
+			activeModal.style.top = '150px';
+			activeModal.style.display = 'none';
 			html.scrollTop = htmlScrollPosition;
-			activeModal = null;
+			activeModalIndex = null;
 		}, modalTransition);
 	}
 	backdrop.addEventListener('click', (event) => {

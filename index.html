@@ -36,9 +36,9 @@
 						<p>A multiplayer card game application that mimics the game Egyptian Ratscrew. It supports 2 to 4 players and runs in the terminal.</p>
 					</div>
 				</div>
-				<div class="expand-button">
-					<p>See more</p>
-				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
 			</div>
 			<div class="project" id="Bomberman">
 				<div class="thumbnail bomberman-background"></div>
@@ -55,9 +55,9 @@
 						<p>Inspired by a classic videogame, this app is a multiplayer game where you try to blow up the other players to win.</p>
 					</div>
 				</div>
-				<div class="expand-button">
-					<p>See more</p>
-				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
 			</div>
 			<div class="project" id="Solitaire">
 				<div class="thumbnail solitaire-background"></div>
@@ -73,9 +73,9 @@
 						<p>A fully functional solitaire application that runs in the terminal. Features include color themes, and vim key support for fast gameplay.</p>
 					</div>
 				</div>
-				<div class="expand-button">
-					<p>See more</p>
-				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
 			</div>
 		</div>
 
@@ -101,7 +101,11 @@
 			</div>
 		</div>
 	</div>
+
+
+	<!-- MODALS -->
 	<div id="modal-background">
+		<!-- RATSCREW -->
 		<div id="Ratscrew-modal" class="modal">
 			<div class="modal-image ratscrew-background">
 				<svg class="modal-exit" viewbox="0 0 24 24">
@@ -109,7 +113,7 @@
 				</svg>
 			</div>
 			<div class="modal-body">
-				<header>
+				<header class="modal-main-element">
 					<h1 id="modal-title">Ratscrew</h1>
 					<div class="deploy-button-container">
 						<a class="deploy-button github" href="https://github.com/julianpabloff/ratscrew" target="_blank">
@@ -133,11 +137,12 @@
 							<p>Node.js</p>
 						</div>
 					</div>
-					<div class="modal-gallery">
+					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
 							<h2>Gallery</h2>
 							<div class="nav-buttons">
 								<div class="indicator">
+									<!-- EXAMPLE -->
 									<!-- <div class="indicator-element selected"></div> -->
 									<!-- <div class="indicator-element"></div> -->
 									<!-- <div class="indicator-element"></div> -->
@@ -155,19 +160,15 @@
 								<img src="img/lily.jpg">
 								<img src="img/lily.jpg">
 							</div>
-							<!-- <div class="gallery-images-container loop"> -->
-							<!-- 	<img src="img/lily.jpg"> -->
-							<!-- 	<img src="img/lily.jpg"> -->
-							<!-- 	<img src="img/lily.jpg"> -->
-							<!-- 	<img src="img/lily.jpg"> -->
-							<!-- </div> -->
 						</div>
 					</div>
-					<p class="modal-description">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
 				</main>
 				<div class="modal-background ratscrew-background"></div>
 			</div>
 		</div>
+
+		<!--BOMBERMAN-->
 		<div id="Bomberman-modal" class="modal">
 			<div class="modal-image bomberman-background">
 				<svg class="modal-exit" viewbox="0 0 24 24">
@@ -175,7 +176,7 @@
 				</svg>
 			</div>
 			<div class="modal-body">
-				<header>
+				<header class="modal-main-element">
 					<h1 id="modal-title">Bomberman</h1>
 					<div class="deploy-button-container">
 						<a class="deploy-button github" href="https://github.com/Ne0nWinds/BomberMan" target="_blank">
@@ -203,15 +204,11 @@
 							<p>Express</p>
 						</div>
 					</div>
-					<div class="modal-gallery">
+					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
 							<h2>Gallery</h2>
 							<div class="nav-buttons">
-								<div class="indicator">
-									<!-- <div class="indicator-element selected"></div> -->
-									<!-- <div class="indicator-element"></div> -->
-									<!-- <div class="indicator-element"></div> -->
-								</div>
+								<div class="indicator"></div>
 								<div class="buttons">
 									<button class="gallery-left">&lt;</button>
 									<button class="gallery-right">&gt;</button>
@@ -230,11 +227,13 @@
 							</div>
 						</div>
 					</div>
-					<p class="modal-description">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
 				</main>
 				<div class="modal-background bomberman-background"></div>
 			</div>
 		</div>
+
+		<!--SOLITAIRE-->
 		<div id="Solitaire-modal" class="modal">
 			<div class="modal-image solitaire-background">
 				<svg class="modal-exit" viewbox="0 0 24 24">
@@ -242,7 +241,7 @@
 				</svg>
 			</div>
 			<div class="modal-body">
-				<header>
+				<header class="modal-main-element">
 					<h1 id="modal-title">Solitaire</h1>
 					<div class="deploy-button-container">
 						<a class="deploy-button github" href="https://github.com/julianpabloff/solitaire" target="_blank">
@@ -266,15 +265,11 @@
 							<p>Node.js</p>
 						</div>
 					</div>
-					<div class="modal-gallery">
+					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
 							<h2>Gallery</h2>
 							<div class="nav-buttons">
-								<div class="indicator">
-									<!-- <div class="indicator-element selected"></div> -->
-									<!-- <div class="indicator-element"></div> -->
-									<!-- <div class="indicator-element"></div> -->
-								</div>
+								<div class="indicator"></div>
 								<div class="buttons">
 									<button class="gallery-left">&lt;</button>
 									<button class="gallery-right">&gt;</button>
@@ -290,7 +285,7 @@
 							</div>
 						</div>
 					</div>
-					<p class="modal-description">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
 				</main>
 				<div class="modal-background solitaire-background"></div>
 			</div>

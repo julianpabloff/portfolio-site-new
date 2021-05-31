@@ -6,10 +6,8 @@ div#project-container {
 }
 div.project {
 	background-color: var(--selected-color);
-	border-radius: 30px;
+	border-radius: var(--element-radius);
 	color: white;
-	/* width: 33vw; */
-	/* height: 22vw; */
 	width: 420px;
 	height: 280px;
 	overflow: hidden;
@@ -19,11 +17,7 @@ div.project {
 
 div.thumbnail {
 	width: 100%;
-	/* height: 16.5vw; */
 	height: 210px;
-	/* display: flex; */
-	/* justify-content: center; */
-	/* align-items: center; */
 }
 div.ratscrew-background {
 	background: url(../img/ratscrew.jpg) center;
@@ -45,7 +39,6 @@ div.moving-div {
 }
 
 div.banner {
-	/* height: 5.5vw; */
 	height: 70px;
 	display: flex;
 	align-items: center;
@@ -54,9 +47,6 @@ div.banner {
 	background-color: var(--window-color);
 	position: relative;
 	z-index: 2;
-}
-div.banner h2 {
-	font-size: 32px;
 }
 div.tech-icons {
 	font-size: 0;
@@ -87,7 +77,7 @@ div.description {
 	box-sizing: border-box;
 }
 
-div.expand-button {
+button.expand-button {
 	width: 100%;
 	height: 70px;
 	background-color: var(--selected-color);
@@ -100,13 +90,11 @@ div.expand-button {
 	align-items: center;
 	transition: background-color .2s;
 }
-div.expand-button p {
+button.expand-button span {
 	font-size: 24px;
 	font-weight: bolder;
 	opacity: 0;
 	transition: opacity 0.9s;
 	user-select: none;
 }
-div.expand-button:hover {
-	background-color: #3b4474;
-}
+button.expand-button:hover { background-color: #3b4474; }
