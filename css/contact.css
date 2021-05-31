@@ -39,6 +39,10 @@ a.contact img, a.contact svg {
 	margin-right: 15px;
 }
 
+a.contact h2 {
+	font-size: 24px;
+}
+
 div#resume-container {
 	outline: 1px solid white;
 	width: 60vw;

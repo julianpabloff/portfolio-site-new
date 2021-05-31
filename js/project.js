@@ -29,7 +29,7 @@ window.addEventListener('load', function() {
 		const expand = children.item(2);
 		const seeMore = expand.children.item(0);
 		project.addEventListener('mouseover', function() {
-			movingDiv.style.bottom = '201px';
+			movingDiv.style.bottom = '210px';
 			seeMore.style.opacity = '1';
 		});
 		project.addEventListener('mouseleave', () => collapseProject(p));

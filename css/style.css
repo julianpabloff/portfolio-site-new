@@ -9,6 +9,7 @@
 	--list-element-width: 200px;
 	--list-height: 60px;
 	--list-radius: 30px;
+	--element-radius: 30px;
 	--page-color: #1d2240; /* 29 34 64 */
 	--window-color: #14182d; /* 20 24 45 */
 	--selected-color: #28305a; /* 40 48 90 */
@@ -17,6 +18,7 @@
 
 body {
 	font-family: 'Rubik', sans-serif;
+	font-size: 20px;
 	overflow-x: hidden;
 	background-color: var(--page-color);
 	color: white;
@@ -34,4 +36,13 @@ a {
 	text-decoration: none;
 	color: white;
 	user-select: none;
+}
+
+button {
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	background-color: transparent;
+	transition: background-color .2s;
 }

@@ -1,15 +1,17 @@
 div#modal-background {
 	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.75);
-	opacity: 0;
-	z-index: 2;
-	position: absolute;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding-bottom: 160px;
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	padding-bottom: 160px;
-	/* overflow: auto; */
+	background-color: rgba(0, 0, 0, 0.75);
+	opacity: 0;
 	transition: opacity 0.25s;
+	position: absolute;
+	z-index: 2;
+	/* overflow: auto; */
 }
 div.modal {
 	/* width: calc(100% - 180px); */
@@ -27,6 +29,8 @@ div.modal {
 	z-index: 3;
 	transition: top 0.3s;
 }
+
+/* TOP IMAGE */
 div.modal div.modal-image {
 	/* background: url(../img/ratscrew.jpg) center; */
 	/* background-size: cover; */
@@ -49,8 +53,10 @@ svg.modal-exit {
 svg.modal-exit:hover {
 	background-color: var(--window-color);
 }
+
+/* BODY */
 div.modal div.modal-body {
-	height: 1000px;
+	/* height: 1000px; */
 	position: relative;
 	overflow: hidden;
 	box-sizing: border-box;
@@ -70,6 +76,8 @@ div.modal div.modal-background {
 	left: 0;
 	z-index: -1;
 }
+
+/* HEADER */
 div.modal header {
 	background-color: var(--modal-body-color);
 	padding: 20px 25px;
@@ -83,7 +91,27 @@ div.modal header {
 div.modal h1 {
 	font-size: 40px
 }
+div.deploy-button-container {
+	display: flex;
+}
+a.deploy-button {
+	height: 50px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	border-radius: 10px;
+	margin-left: 20px;
+}
+a.deploy-button svg {
+	height: 25px;
+	margin-right: 10px;
+}
+a.github { background-color: #3f57d9; }
+a.github:hover { background-color: #3045b5; }
+a.play { background-color: #439343; }
+a.play:hover { background-color: #227e22; }
 
+/* TECH ICONS */
 div.modal-tech-icons {
 	display: flex;
 	margin-bottom: 20px;
@@ -94,7 +122,7 @@ div.modal-tech-icon {
 	align-items: center;
 	border-radius: 30px;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 12px;
 	margin-right: 20px;
 	background-color: var(--modal-body-color);
 }
@@ -105,6 +133,72 @@ div.modal-tech-icon p {
 	font-size: 20px;
 	margin: 0 12px;
 }
+
+/* GALLERY */
+div.modal-gallery {
+	width: 640px;
+	padding: 25px;
+	border-radius: var(--element-radius);
+	display: flex;
+	flex-direction: column;
+	background-color: var(--modal-body-color);
+	margin-bottom: 20px;
+}
+
+div.modal-gallery-navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+div.modal-gallery-navbar div.nav-buttons{
+	display: flex;
+	align-items: center;
+}
+div.nav-buttons div.indicator {
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 7px;
+}
+div.indicator div.indicator-element {
+	height: 5px;
+	width: 30px;
+	background-color: var(--modal-body-color);
+}
+div.indicator div.selected {
+	background-color: white;
+}
+div.nav-buttons div.buttons {
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 7px;
+	margin-left: 20px;
+}
+div.nav-buttons button {
+	width: 45px;
+	height: 45px;
+	font-size: 24px;
+	border-radius: 22.5px;
+	background-color: var(--modal-body-color);
+}
+div.modal-gallery-navbar button:hover {
+	background-color: rgba(20, 24, 45, 0.8);
+}
+
+div.modal-gallery-images {
+	display: flex;
+	overflow-x: hidden;
+}
+div.modal-gallery img {
+	width: 196.67px;
+	margin-right: 25px;
+	border-radius: var(--element-radius);
+	cursor: pointer;
+}
+div.modal-gallery img:hover {
+	filter: brightness(0.7);
+}
+
 
 p.modal-description {
 	font-size: 20px;
