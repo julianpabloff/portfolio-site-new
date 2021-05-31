@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
 
 	let waitToCollapse = false;
 	function collapseProject(p) {
-		console.log('Trying to collapse project shelf');
+		// console.log('Trying to collapse project shelf');
 		if (waitToCollapse) return;
 		let projectChildren = projects[p].children;
 		let movingDiv = projectChildren.item(1);
@@ -33,28 +33,6 @@ window.addEventListener('load', function() {
 			seeMore.style.opacity = '1';
 		});
 		project.addEventListener('mouseleave', () => collapseProject(p));
-		expand.addEventListener('click', () => {
-			modal = modals[p];
-			activeModal = p;
-			let modalStyle = modal.style;
-			htmlScrollPosition = html.scrollTop;
-			body.style.top = '-' + html.scrollTop.toString() + 'px';
-			body.style.position = 'fixed';
-			html.scrollTop = 0;
-			waitToCollapse = true;
-			// setTimeout(() => {
-			// 	waitToCollapse = false;
-			// 	collapseProject();
-			// }, modalTransition);
-			backdropStyle.display = 'flex';
-			setTimeout(() => { 
-				backdropStyle.opacity = '1';
-				modalStyle.display = 'flex';
-				setTimeout(() => {
-					modalStyle.top = '80px';
-				}, 1);
-			}, 1);
-		});
 
 		const techIconsDiv = movingDiv.children.item(0).children.item(1);
 		const icons = techIconsDiv.children;
@@ -84,11 +62,77 @@ window.addEventListener('load', function() {
 		techIconsDiv.addEventListener('mouseenter', labelOn);
 		techIconsDiv.addEventListener('mouseleave', labelOff);
 
+		expand.addEventListener('click', () => {
+			modal = modals[p];
+			activeModal = p;
+			let modalStyle = modal.style;
+			htmlScrollPosition = html.scrollTop;
+			body.style.top = '-' + html.scrollTop.toString() + 'px';
+			body.style.position = 'fixed';
+			html.scrollTop = 0;
+			waitToCollapse = true;
+			// setTimeout(() => {
+			// 	waitToCollapse = false;
+			// 	collapseProject();
+			// }, modalTransition);
+			backdropStyle.display = 'flex';
+			setTimeout(() => { 
+				backdropStyle.opacity = '1';
+				modalStyle.display = 'flex';
+				setTimeout(() => {
+					modalStyle.top = '80px';
+				}, 1);
+			}, 1);
+		});
 	}
 
-	for (let modal of modals) {
+	const lefts = document.getElementsByClassName('gallery-left');
+	const rights = document.getElementsByClassName('gallery-right');
+	const galleries = document.getElementsByClassName('gallery-images-container');
+	const indicators = document.getElementsByClassName('indicator');
+	console.log(galleries);
+	for (let m = 0; m < modals.length; m++) {
+		let modal = modals[m];
 		const exitButton = modal.children.item(0).firstElementChild;
 		exitButton.addEventListener('click', closeModal, true);
+
+		let gallery = galleries[m];
+		let page = 0;
+		let pageCount = Math.ceil(gallery.children.length / 3);
+		let galleryDisplacement = 0;
+		// console.log(pageCount);
+
+		let indicator = indicators[m];
+		for (let i = 0; i < pageCount; i++) {
+			let element = document.createElement('div');
+			element.className = 'indicator-element';
+			if (i == 0) element.className += ' selected';
+			indicator.appendChild(element);
+		}
+
+		lefts[m].addEventListener('click', () => {
+			console.log('clicked left: ' + modal.id);
+			if (page > 0) {
+				galleryDisplacement -= 665;
+				gallery.style.right = galleryDisplacement.toString() + 'px';
+
+				indicator.children[page].className = 'indicator-element';
+				page--;
+				indicator.children[page].className += ' selected';
+			}
+		});
+
+		rights[m].addEventListener('click', () => {
+			console.log('clicked right: ' + modal.id);
+			if (page < pageCount - 1) {
+				galleryDisplacement += 665;
+				gallery.style.right = galleryDisplacement.toString() + 'px';
+
+				indicator.children[page].className = 'indicator-element';
+				page++;
+				indicator.children[page].className += ' selected';
+			}
+		});
 	}
 
 

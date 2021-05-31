@@ -164,8 +164,9 @@ div.indicator div.indicator-element {
 	height: 5px;
 	width: 30px;
 	background-color: var(--modal-body-color);
+	transition: background-color .15s;
 }
-div.indicator div.selected {
+div.indicator div.indicator-element.selected {
 	background-color: white;
 }
 div.nav-buttons div.buttons {
@@ -175,10 +176,10 @@ div.nav-buttons div.buttons {
 	margin-left: 20px;
 }
 div.nav-buttons button {
-	width: 45px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	font-size: 24px;
-	border-radius: 22.5px;
+	border-radius: 20px;
 	background-color: var(--modal-body-color);
 }
 div.modal-gallery-navbar button:hover {
@@ -188,6 +189,15 @@ div.modal-gallery-navbar button:hover {
 div.modal-gallery-images {
 	display: flex;
 	overflow-x: hidden;
+}
+div.gallery-images-container {
+	display: flex;
+	position: relative;
+	right: 0;
+	transition: right 0.4s;
+}
+div.gallery-images-container.loop {
+	display: none;
 }
 div.modal-gallery img {
 	width: 196.67px;
