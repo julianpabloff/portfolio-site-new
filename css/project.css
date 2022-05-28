@@ -5,19 +5,21 @@ div#project-container {
 	margin-bottom: 50px;
 }
 div.project {
-	background-color: var(--selected-color);
+	/* background-color: var(--selected-color); */
 	border-radius: var(--element-radius);
 	color: white;
 	width: 420px;
 	height: 280px;
 	overflow: hidden;
 	position: relative;
-	transition: bottom .2s;
+	/* transition: bottom .2s; */
+	transition: width 0.2s;
 }
 
 div.thumbnail {
 	width: 100%;
 	height: 210px;
+	transition: height 0.2s;
 }
 div.ratscrew-background {
 	background: url(../img/ratscrew.jpg) center;
@@ -35,7 +37,7 @@ div.solitaire-background {
 div.moving-div {
 	position: relative;
 	bottom: 0;
-	transition: bottom 0.2s;
+	transition: bottom 0.2s, opacity 0.2s;
 }
 
 div.banner {
@@ -102,5 +104,29 @@ button.expand-button:hover { background-color: #3b4474; }
 @media only screen and (max-width: 990px) {
 	div#project-container {
 		grid-template-columns: 1fr;
+	}
+	div.project:hover {
+		cursor: pointer;
+	}
+	button.expand-button {
+		display: none;
+	}
+}
+@media only screen and (max-width: 650px) {
+	div#project-container {
+		grid-gap: calc(100vw / 13);
+	}
+}
+@media only screen and (max-width: 470px) {
+	div.project {
+		width: calc(100vw - 50px);
+		height: calc(((100vw - 50px) * 14) / 21);
+		border-radius: calc(((100vw - 50px) * 3) / 42);
+	}
+	div.thumbnail {
+		height: calc((100vw - 50px) / 2);
+	}
+	button.expand-button {
+		display: none;
 	}
 }

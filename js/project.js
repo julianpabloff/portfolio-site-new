@@ -42,10 +42,23 @@ window.addEventListener('load', function() {
 		const expand = children.item(2);
 		const seeMore = expand.children.item(0);
 		project.addEventListener('mouseover', function() {
-			movingDiv.style.bottom = '210px';
-			seeMore.style.opacity = '1';
+			if (windowWidth > 990) {
+				movingDiv.style.bottom = '210px';
+				seeMore.style.opacity = '1';
+			}
 		});
 		project.addEventListener('mouseleave', () => collapseProject(p));
+		const thumbnail = project.children[0];
+		project.addEventListener('click', () => {
+			console.log('project ' + (p + 1).toString() + ' clicked');
+			const projectStyle = project.style;
+			if (windowWidth <= 990) {
+				projectStyle.width = '100vw';
+				projectStyle.height = 'initial';
+				thumbnail.style.height = 'calc((100vw * 8) / 15)';
+				// movingDiv.style.opacity = '0';
+			}
+		});
 
 		const techIconsDiv = movingDiv.children.item(0).children.item(1);
 		const icons = techIconsDiv.children;
@@ -253,4 +266,9 @@ window.addEventListener('load', function() {
 	backdrop.addEventListener('click', (event) => {
 		if (event.target == backdrop) closeModal();
 	}, true);
+
+	let windowWidth = document.documentElement.clientWidth;
+	window.addEventListener('resize', event => {
+		windowWidth = document.documentElement.clientWidth;
+	});
 });

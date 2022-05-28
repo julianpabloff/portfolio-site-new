@@ -47,6 +47,7 @@ div#highlight {
 	nav#link-list {
 		width: calc(100vw - 50px);
 		height: calc(100vw / 10.8333);
+		margin-bottom: calc(100vw / 13);
 	}
 	nav#link-list a {
 		width: calc((100vw - 50px) / 3);
