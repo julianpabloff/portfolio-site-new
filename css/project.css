@@ -98,3 +98,9 @@ button.expand-button span {
 	user-select: none;
 }
 button.expand-button:hover { background-color: #3b4474; }
+
+@media only screen and (max-width: 990px) {
+	div#project-container {
+		grid-template-columns: 1fr;
+	}
+}

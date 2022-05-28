@@ -1,4 +1,4 @@
-nav#link-list{
+nav#link-list {
 	list-style: none;
 	display: flex;
 	background-color: var(--window-color);
@@ -32,7 +32,7 @@ nav#link-list a.selected {
 	color: #c2c8eb;
 }
 
-div#highlight{
+div#highlight {
 	width: var(--list-element-width);
 	height: var(--list-height);
 	background-color: var(--selected-color);
@@ -41,4 +41,20 @@ div#highlight{
 	position: absolute;
 	/* outline: 8px solid var(--selected-color); */
 	/* outline-offset: -8px; */
+}
+
+@media only screen and (max-width: 650px) {
+	nav#link-list {
+		width: calc(100vw - 50px);
+		height: calc(100vw / 10.8333);
+	}
+	nav#link-list a {
+		width: calc((100vw - 50px) / 3);
+		height: calc(100vw / 10.8333);
+		font-size: calc(100vw / 26);
+	}
+	div#highlight {
+		width: calc((100vw - 50px) / 3);
+		height: calc(100vw / 10.8333);
+	}
 }
