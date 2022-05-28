@@ -28,8 +28,12 @@ window.addEventListener('load', function() {
 	const projects = document.querySelector('div#project-container').children;
 	const lefts = document.getElementsByClassName('gallery-left');
 	const rights = document.getElementsByClassName('gallery-right');
-	const galleries = document.getElementsByClassName('gallery-images-container');
+	// const galleries = document.getElementsByClassName('gallery-images-container');
+	const galleries = document.getElementsByClassName('modal-gallery-images');
+	console.log(galleries);
+	const galleryNavBars = document.getElementsByClassName('modal-gallery-navbar');
 	const indicators = document.getElementsByClassName('indicator');
+	// const imageCounter = document.getElementsByClassName('image-counter');
 
 	for (let p = 0; p < projects.length; p++) {
 		let project = projects[p];
@@ -68,7 +72,10 @@ window.addEventListener('load', function() {
 				icon.removeEventListener('mouseenter', handleLabelContent);
 		}
 
-		techIconsDiv.addEventListener('mouseenter', labelOn);
+		techIconsDiv.addEventListener('mouseenter', (event) => {
+			handleLabelPosition(event);
+			labelOn();
+		});
 		techIconsDiv.addEventListener('mouseleave', labelOff);
 
 		expand.addEventListener('click', () => {
@@ -98,12 +105,26 @@ window.addEventListener('load', function() {
 		const exitButton = modal.children.item(0).firstElementChild;
 		exitButton.addEventListener('click', closeModal, true);
 
-		let gallery = galleries[p];
-		let page = 0;
-		let pageCount = Math.ceil(gallery.children.length / 3);
+		let gallery = galleries[p].children[0];
+		let pageIndex = 0;
+		const pageCount = Math.ceil(gallery.children.length / 3);
 		let galleryDisplacement = 0;
+		let imagesExpanded = false;
+		let imageIndex = 0;
+		const imageCount = gallery.children.length;
 
-		let indicator = indicators[p];
+		// let indicator = indicators[p];
+		// Nav bar element selection
+		const navBar = galleryNavBars[p];
+		const imageToggleButton = navBar.children[0].children[1];
+		const imageToggleButtonSpan = imageToggleButton.children[0];
+		const navButtons = navBar.children[1];
+		const indicator = navButtons.children[1];
+		const indicatorElements = indicator.children;
+		const imageCounter = navButtons.children[0];
+		const imageIndexSpan = imageCounter.children[0];
+		const imageCountSpan = imageCounter.children[1];
+		imageCountSpan.innerHTML = imageCount.toString();
 		for (let i = 0; i < pageCount; i++) {
 			let element = document.createElement('div');
 			element.className = 'indicator-element';
@@ -111,27 +132,108 @@ window.addEventListener('load', function() {
 			indicator.appendChild(element);
 		}
 
-		lefts[p].addEventListener('click', () => {
-			if (page > 0) {
+		function scrollImagesLeft() {
+			if (!imagesExpanded && pageIndex > 0) {
 				galleryDisplacement -= 665;
 				gallery.style.right = galleryDisplacement.toString() + 'px';
 
-				indicator.children[page].className = 'indicator-element';
-				page--;
-				indicator.children[page].className += ' selected';
+				indicatorElements[pageIndex].className = 'indicator-element';
+				pageIndex--;
+				imageIndex = pageIndex * 3;
+				indicatorElements[pageIndex].className += ' selected';
+			} else if (imagesExpanded && imageIndex > 0) {
+				galleryDisplacement -= 665;
+				gallery.style.right = galleryDisplacement.toString() + 'px';
+				imageIndex--;
+				imageIndexSpan.innerHTML = (imageIndex + 1).toString();
 			}
-		});
-
-		rights[p].addEventListener('click', () => {
-			if (page < pageCount - 1) {
+		}
+		function scrollImagesRight() {
+			if (!imagesExpanded && pageIndex < pageCount - 1) {
 				galleryDisplacement += 665;
 				gallery.style.right = galleryDisplacement.toString() + 'px';
 
-				indicator.children[page].className = 'indicator-element';
-				page++;
-				indicator.children[page].className += ' selected';
+				indicatorElements[pageIndex].className = 'indicator-element';
+				pageIndex++;
+				imageIndex = pageIndex * 3;
+				indicatorElements[pageIndex].className += ' selected';
+			} else if (imagesExpanded && imageIndex < imageCount - 1) {
+				galleryDisplacement += 665;
+				gallery.style.right = galleryDisplacement.toString() + 'px';
+				imageIndex++;
+				imageIndexSpan.innerHTML = (imageIndex + 1).toString();
+			}
+		}
+
+		lefts[p].addEventListener('click', scrollImagesLeft);
+		rights[p].addEventListener('click', scrollImagesRight);
+		galleries[p].addEventListener('click', event => {
+			console.log(event);
+			if (imagesExpanded) {
+				// const layerX = event.layerX;
+				// // console.log(event);
+				// const width = event.target.width;
+				// if (layerX % 665 < width / 3) {
+				// 	scrollImagesLeft();
+				// } else if (layerX % 665 > width - width / 3) {
+				// 	scrollImagesRight();
+				// }
 			}
 		});
+
+		imageToggleButton.addEventListener('click', () => {
+			if (imagesExpanded) collapseImages();
+			else expandImages(imageIndex);
+		});
+		const images = gallery.children;
+		for (let i = 0; i < imageCount; i++) {
+			const image = images[i];
+			image.addEventListener('click', (event) => {
+				if (!imagesExpanded) expandImages(i)
+				else {
+					const layerX = event.layerX;
+					// console.log(event);
+					const width = event.target.width;
+					if (layerX % 665 < width / 3) {
+						scrollImagesLeft();
+					} else if (layerX % 665 > width - width / 3) {
+						scrollImagesRight();
+					}
+				}
+			});
+		}
+		function expandImages(i) {
+			for (const image of images) {
+				image.style.width = '640px';
+				image.className = 'gallery-img expanded';
+			}
+			imageToggleButtonSpan.innerHTML = 'Collapse';
+			indicator.style.display = 'none';
+			imageCounter.style.display = 'block';
+			imageIndexSpan.innerHTML = (i + 1).toString();
+			galleryDisplacement = 665 * (pageIndex * 3 + i % 3);
+			gallery.style.right = (galleryDisplacement).toString() + 'px';
+			imagesExpanded = true;
+			imageIndex = i;
+		}
+		function collapseImages() {
+			for (const image of images) {
+				image.style.width = '196.67px';
+				image.className = 'gallery-img collapsed';
+			}
+			imageCounter.style.display = 'none';
+			imageToggleButtonSpan.innerHTML = 'Enlarge';
+			pageIndex = Math.floor(imageIndex / 3);
+			galleryDisplacement = 665 * pageIndex;
+			gallery.style.right = (galleryDisplacement).toString() + 'px';
+			for (let i = 0; i < indicatorElements.length; i++) {
+				const indicatorElement = indicatorElements[i];
+				if (i == pageIndex) indicatorElement.className = 'indicator-element selected';
+				else indicatorElement.className = 'indicator-element';
+			}
+			indicator.style.display = 'grid';
+			imagesExpanded = false;
+		}
 	}
 
 	function closeModal() {

@@ -34,6 +34,7 @@ div.modal {
 	margin-bottom: 25px;
 	padding: 20px 25px;
 	border-radius: var(--element-radius);
+	background-color: var(--modal-body-color);
 }
 
 /* TOP IMAGE */
@@ -85,7 +86,6 @@ div.modal div.modal-background {
 
 /* HEADER */
 div.modal header {
-	background-color: var(--modal-body-color);
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
@@ -144,7 +144,6 @@ div.modal-gallery {
 	padding-bottom: 25px;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--modal-body-color);
 }
 
 div.modal-gallery-navbar {
@@ -153,7 +152,7 @@ div.modal-gallery-navbar {
 	align-items: center;
 	margin-bottom: 20px;
 }
-div.modal-gallery-navbar div.nav-buttons{
+div.left-nav, div.nav-buttons {
 	display: flex;
 	align-items: center;
 }
@@ -172,6 +171,27 @@ div.indicator div.indicator-element {
 div.indicator div.indicator-element.selected {
 	background-color: white;
 }
+p.img-toggle-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 75px;
+	height: 35px;
+	padding: 0 20px;
+	margin-left: 20px;
+	font-size: 19px;
+	border-radius: 10px;
+	background-color: var(--modal-body-color);
+	transition: background-color .2s;
+	cursor: pointer;
+	user-select: none;
+}
+p.img-toggle-btn:hover {
+	background-color: var(--modal-hover-color);
+}
+p.image-counter {
+	display: none;
+}
 div.nav-buttons div.buttons {
 	display: grid;
 	grid-auto-flow: column;
@@ -186,7 +206,7 @@ div.nav-buttons button {
 	background-color: var(--modal-body-color);
 }
 div.modal-gallery-navbar button:hover {
-	background-color: rgba(20, 24, 45, 0.8);
+	background-color: var(--modal-hover-color);
 }
 
 div.modal-gallery-images {
@@ -203,19 +223,34 @@ div.gallery-images-container {
 div.gallery-images-container.loop {
 	display: none;
 }
-div.modal-gallery img {
+img.gallery-img {
 	width: 196.67px;
 	margin-right: 25px;
 	border-radius: 25px;
 	cursor: pointer;
+	transition: filter, width 0.4s;
+	user-select: none;
 }
-div.modal-gallery img:hover {
+/* img.expanded { */
+/* 	cursor: default; */
+/* } */
+img.collapsed:hover {
 	filter: brightness(0.7);
 }
 
 
-p.modal-description {
-	font-size: 20px;
-	background-color: var(--modal-body-color);
+/* DESCRIPTION */
+div.modal-description { margin-bottom: 0 }
+div.modal-description * { line-height: 25px; }
+div.modal-description p {
+	margin-bottom: 15px;
+}
+div.modal-description p.list-header {
+	margin-bottom: 5px;
+}
+div.modal-description ul {
+	list-style-position: inside;
+}
+div.modal-description > *:last-child {
 	margin: 0;
 }

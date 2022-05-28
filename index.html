@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/links.css">
 	<link rel="stylesheet" href="css/project.css">
 	<link rel="stylesheet" href="css/modal.css">
+	<link rel="stylesheet" href="css/resume.css">
 	<link rel="stylesheet" href="css/contact.css">
 	<script src="js/main.js"></script>
 	<script src="js/project.js"></script>
@@ -80,7 +81,7 @@
 		</div>
 
 		<div id="resume-container">
-
+			<p>Coming soon</p>
 		</div>
 
 		<div id="contact-container">
@@ -120,10 +121,10 @@
 							<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
 							Github
 						</a>
-						<a class="deploy-button play">
-							<svg viewBox="0 0 500 500" style="fill: white; height: 22px;"><path d="M429.6,212L101.5,22.6C72.4,5.8,36,26.8,36,60.5v378.8c0,33.6,36.4,54.7,65.5,37.8l328.1-189.4   C458.8,270.9,458.8,228.9,429.6,212z"/></svg>
-							Play
-						</a>
+						<!-- <a class="deploy-button play"> -->
+						<!-- 	<svg viewBox="0 0 500 500" style="fill: white; height: 22px;"><path d="M429.6,212L101.5,22.6C72.4,5.8,36,26.8,36,60.5v378.8c0,33.6,36.4,54.7,65.5,37.8l328.1-189.4   C458.8,270.9,458.8,228.9,429.6,212z"/></svg> -->
+						<!-- 	Play -->
+						<!-- </a> -->
 					</div>
 				</header>
 				<main>
@@ -139,8 +140,16 @@
 					</div>
 					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
-							<h2>Gallery</h2>
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Enlarge</span>
+								</p>
+							</div>
 							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
 								<div class="indicator">
 									<!-- EXAMPLE -->
 									<!-- <div class="indicator-element selected"></div> -->
@@ -155,14 +164,24 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
 							</div>
+							<div class="image-scroll-layer"></div>
 						</div>
 					</div>
-					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<div class="modal-description modal-main-element">
+						<p>This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew.</p>
+						<p>Object-oriented programming was very useful for this project.</p>
+						<p class="list-header">Upcoming features:</p>
+						<ul>
+							<li>Online Multiplayer via SSH</li>
+							<li>Settings Menu to adjust default controls</li>
+							<li>Theme selection (like Solitaire)</li>
+						</ul>
+					</div>
 				</main>
 				<div class="modal-background ratscrew-background"></div>
 			</div>
@@ -206,8 +225,16 @@
 					</div>
 					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
-							<h2>Gallery</h2>
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Expand</span>
+								</p>
+							</div>
 							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
 								<div class="indicator"></div>
 								<div class="buttons">
 									<button class="gallery-left">&lt;</button>
@@ -217,17 +244,19 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
 							</div>
 						</div>
 					</div>
-					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<div class="modal-description modal-main-element">
+						<p>This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew.</p>
+					</div>
 				</main>
 				<div class="modal-background bomberman-background"></div>
 			</div>
@@ -248,10 +277,10 @@
 							<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
 							Github
 						</a>
-						<a class="deploy-button play">
-							<svg viewBox="0 0 500 500" style="fill: white; height: 22px;"><path d="M429.6,212L101.5,22.6C72.4,5.8,36,26.8,36,60.5v378.8c0,33.6,36.4,54.7,65.5,37.8l328.1-189.4   C458.8,270.9,458.8,228.9,429.6,212z"/></svg>
-							Play
-						</a>
+						<!-- <a class="deploy-button play"> -->
+						<!-- 	<svg viewBox="0 0 500 500" style="fill: white; height: 22px;"><path d="M429.6,212L101.5,22.6C72.4,5.8,36,26.8,36,60.5v378.8c0,33.6,36.4,54.7,65.5,37.8l328.1-189.4   C458.8,270.9,458.8,228.9,429.6,212z"/></svg> -->
+						<!-- 	Play -->
+						<!-- </a> -->
 					</div>
 				</header>
 				<main>
@@ -267,8 +296,16 @@
 					</div>
 					<div class="modal-gallery modal-main-element">
 						<div class="modal-gallery-navbar">
-							<h2>Gallery</h2>
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Expand</span>
+								</p>
+							</div>
 							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
 								<div class="indicator"></div>
 								<div class="buttons">
 									<button class="gallery-left">&lt;</button>
@@ -278,14 +315,16 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
-								<img src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/lily.jpg">
 							</div>
 						</div>
 					</div>
-					<p class="modal-description modal-main-element">This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew</p>
+					<div class="modal-description modal-main-element">
+						<p>This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew.</p>
+					</div>
 				</main>
 				<div class="modal-background solitaire-background"></div>
 			</div>

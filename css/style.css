@@ -14,6 +14,7 @@
 	--window-color: #14182d; /* 20 24 45 */
 	--selected-color: #28305a; /* 40 48 90 */
 	--modal-body-color: rgba(20, 24, 45, 0.5);
+	--modal-hover-color: rgba(20, 24, 45, 0.8);
 }
 
 body {

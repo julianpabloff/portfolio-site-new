@@ -42,10 +42,3 @@ a.contact img, a.contact svg {
 a.contact h2 {
 	font-size: 24px;
 }
-
-div#resume-container {
-	outline: 1px solid white;
-	width: 60vw;
-	height: calc(100vh - 50px);
-	display: none;
-}

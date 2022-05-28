@@ -35,7 +35,7 @@ div.solitaire-background {
 div.moving-div {
 	position: relative;
 	bottom: 0;
-	transition: bottom 0.27s;
+	transition: bottom 0.2s;
 }
 
 div.banner {
