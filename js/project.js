@@ -42,22 +42,31 @@ window.addEventListener('load', function() {
 		const expand = children.item(2);
 		const seeMore = expand.children.item(0);
 		project.addEventListener('mouseover', function() {
-			if (windowWidth > 990) {
+			if (!mobileMode) {
 				movingDiv.style.bottom = '210px';
 				seeMore.style.opacity = '1';
 			}
 		});
 		project.addEventListener('mouseleave', () => collapseProject(p));
-		const thumbnail = project.children[0];
 		project.addEventListener('click', () => {
+			if (!mobileMode) return;
 			console.log('project ' + (p + 1).toString() + ' clicked');
-			const projectStyle = project.style;
-			if (windowWidth <= 990) {
-				projectStyle.width = '100vw';
-				projectStyle.height = 'initial';
-				thumbnail.style.height = 'calc((100vw * 8) / 15)';
-				// movingDiv.style.opacity = '0';
-			}
+			activeModal = modals[p];
+			activeModalIndex = p;
+			let modalStyle = activeModal.style;
+			htmlScrollPosition = html.scrollTop;
+			body.style.top = '-' + html.scrollTop.toString() + 'px';
+			body.style.position = 'fixed';
+			html.scrollTop = 0;
+			backdropStyle.display = 'flex';
+			setTimeout(() => { 
+				backdropStyle.opacity = '1';
+				modalStyle.display = 'flex';
+				setTimeout(() => {
+					// if (windowWidth > 800) modalStyle.top = '25px';
+					// else modalStyle.top = 'calc(100vw * 50 / 800)';
+				}, 1);
+			}, 1);
 		});
 
 		const techIconsDiv = movingDiv.children.item(0).children.item(1);
@@ -70,8 +79,9 @@ window.addEventListener('load', function() {
 			labelStyle.top = (event.pageY - 35).toString() + 'px';
 		}
 		function handleLabelContent() {
-			labelStyle.display = 'initial';
+			if (!mobileMode) labelStyle.display = 'initial';
 			label.innerHTML = this.className;
+
 		}
 		function labelOn() {
 			window.addEventListener('mousemove', handleLabelPosition);
@@ -105,6 +115,7 @@ window.addEventListener('load', function() {
 			// 	collapseProject();
 			// }, modalTransition);
 			backdropStyle.display = 'flex';
+			modalStyle.top = '150px';
 			setTimeout(() => { 
 				backdropStyle.opacity = '1';
 				modalStyle.display = 'flex';
@@ -257,7 +268,6 @@ window.addEventListener('load', function() {
 			// backdrop.scrollTop = 0;
 			body.style.position = 'static';
 			backdropStyle.display = 'none';
-			activeModal.style.top = '150px';
 			activeModal.style.display = 'none';
 			html.scrollTop = htmlScrollPosition;
 			activeModalIndex = null;
@@ -268,7 +278,11 @@ window.addEventListener('load', function() {
 	}, true);
 
 	let windowWidth = document.documentElement.clientWidth;
+	let windowHeight = document.documentElement.clientHeight;
+	let mobileMode = windowWidth < 990 || windowHeight < 990;
 	window.addEventListener('resize', event => {
 		windowWidth = document.documentElement.clientWidth;
+		windowHeight = document.documentElement.clientHeight;
+		mobileMode = windowWidth < 990 || windowHeight < 990;
 	});
 });

@@ -6,7 +6,7 @@ div#modal-background {
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.5);
 	opacity: 0;
 	transition: opacity 0.25s;
 	position: absolute;
@@ -25,12 +25,11 @@ div.modal {
 	flex-direction: column;
 	position: relative;
 	overflow: hidden;
-	top: 150px;
 	z-index: 3;
-	transition: top 0.3s;
+	/* transition: top 0.3s; */
 }
 
-.modal-main-element {
+header.modal-main-element {
 	margin-bottom: 25px;
 	padding: 20px 25px;
 	border-radius: var(--element-radius);
@@ -253,4 +252,57 @@ div.modal-description ul {
 }
 div.modal-description > *:last-child {
 	margin: 0;
+}
+
+@media only screen and (max-width: 990px) and (min-width: 801px) {
+	div.modal {
+		top: 25px;
+		transition: none;
+	}
+}
+/* When window constricts modal */
+@media only screen and (max-width: 800px) {
+	div.modal {
+		top: calc(100vw * 25 / 800);
+		width: calc(100vw * 750 / 800);
+		transition: none;
+	}
+	div.modal div.modal-body {
+		padding: calc(100vw * 3 / 80);
+	}
+	div.modal div.modal-image {
+		height: 50vw;
+	}
+	header.modal-main-element {
+		margin-bottom: calc(100vw / 32);
+		padding: calc(100vw / 40) calc(100vw / 32);
+		border-radius: calc(100vw * 3 / 80);
+	}
+	div.modal h1 {
+		font-size: calc(100vw / 20);
+	}
+	a.deploy-button {
+		height: calc(100vw / 16);
+		padding: 0 calc(100vw / 40);
+		border-radius: calc(100vw / 80);
+		margin-left: calc(100vw / 40);
+		font-size: calc(100vw / 40);
+	}
+	a.deploy-button svg {
+		height: calc(100vw / 32);
+		margin-right: calc(100vw / 80);
+	}
+	div.modal-tech-icons {
+		margin-bottom: calc(100vw / 32);
+	}
+	div.modal-tech-icon {
+		height: calc(100vw * 3 / 40);
+		border-radius: calc(100vw * 3 / 80);
+		padding: calc(100vw * 3 / 200);
+		margin-right: calc(100vw / 40);
+	}
+	div.modal-tech-icon p {
+		font-size: calc(100vw / 40);
+		margin: 0 calc(100vw * 3 / 200);
+	}
 }

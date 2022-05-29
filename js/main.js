@@ -71,8 +71,8 @@ window.addEventListener('load', function() {
 	}
 	function setLeft(index) {
 		let left;
-		if (windowWidth > 650) left = 200 * index;
-		else left = (windowWidth - 50) * index / 3;
+		if (windowWidth > 671.42) left = 200 * index;
+		else left = windowWidth * 14 / 47 * index;
 		highlightStyle.left = left.toString() + 'px';
 	}
 	function moveHighlight(index) {
