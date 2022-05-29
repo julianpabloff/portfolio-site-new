@@ -23,12 +23,6 @@ nav#link-list a {
 	z-index: 1;
 }
 nav#link-list a.selected {
-	/* background-color: rgba(87, 100, 165, 0.2); */
-	/* background-color: var(--selected-color); */
-	/* outline: 3px solid #757ead; */
-	/* outline-offset: -3px; */
-	/* font-weight: bolder; */
-	/* text-decoration: underline; */
 	color: #c2c8eb;
 }
 
@@ -39,27 +33,8 @@ div#highlight {
 	border-radius: var(--list-radius);
 	opacity: 0;
 	position: absolute;
-	/* outline: 8px solid var(--selected-color); */
-	/* outline-offset: -8px; */
 }
 
-/* @media only screen and (max-width: 650px) { */
-/* 	nav#link-list { */
-/* 		/1* width: calc(100vw - 50px); *1/ */
-/* 		/1* width: calc(100vw * 12 / 13); *1/ */
-/* 		height: calc(100vw / 10.8333); */
-/* 		margin-bottom: calc(100vw / 13); */
-/* 	} */
-/* 	nav#link-list a { */
-/* 		width: calc((100vw - 50px) / 3); */
-/* 		height: calc(100vw / 10.8333); */
-/* 		font-size: calc(100vw / 26); */
-/* 	} */
-/* 	div#highlight { */
-/* 		width: calc((100vw - 50px) / 3); */
-/* 		height: calc(100vw / 10.8333); */
-/* 	} */
-/* } */
 @media only screen and (max-width: 671.42px) {
 	nav#link-list {
 		width: calc(100vw * 42 / 47);
@@ -74,5 +49,21 @@ div#highlight {
 	div#highlight {
 		width: calc(100vw * 14 / 47);
 		height: calc(100vw * 42 / 470);
+	}
+}
+@media (orientation: landscape) and (max-height: 671.42px) {
+	nav#link-list {
+		width: calc(100vh * 42 / 47);
+		height: calc(100vh * 42 / 470);
+		margin: calc(100vh * 7 / 94);
+	}
+	nav#link-list a {
+		width: calc(100vh * 14 / 47);
+		height: calc(100vh * 42 / 470);
+		font-size: calc(100vh * 7 / 188);
+	}
+	div#highlight {
+		width: calc(100vh * 14 / 47);
+		height: calc(100vh * 42 / 470);
 	}
 }

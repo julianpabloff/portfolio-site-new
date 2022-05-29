@@ -146,3 +146,39 @@ button.expand-button:hover { background-color: #3b4474; }
 		height: calc(100vw * 19 / 235);
 	}
 }
+@media (orientation: landscape) and (max-height: 990px) {
+	div#project-container {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media only screen and (max-width: 990px) {
+		div#project-container {
+			grid-gap: calc((100vw - 840px) / 3);
+		}
+	}
+	@media only screen and (max-width: 915px) {
+		div#project-container {
+			grid-gap: 25px;
+		}
+		div.project {
+			width: calc(100vw * 420 / 915);
+			height: calc(100vw * 280 / 915);
+			border-radius: calc(100vw * 30 / 915);
+		}
+		div.thumbnail {
+			height: calc(100vw * 210 / 915);
+		}
+		div.banner {
+			height: calc(100vw * 70 / 915);
+			padding: 0 calc(100vw * 25 / 915);
+		}
+		div.banner h2 {
+			font-size: calc(100vw * 32 / 915);
+		}
+		div.tech-icons {
+			grid-gap: calc(100vw * 10 / 915);
+		}
+		div.tech-icons img {
+			height: calc(100vw * 38 / 915);
+		}
+	}
+}
