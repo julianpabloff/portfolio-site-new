@@ -13,6 +13,7 @@ div.project {
 	overflow: hidden;
 	position: relative;
 	transition: bottom .2s;
+	cursor: pointer;
 }
 
 div.thumbnail {
@@ -99,86 +100,86 @@ button.expand-button span {
 }
 button.expand-button:hover { background-color: #3b4474; }
 
-@media only screen and (max-width: 990px) {
-	div#project-container {
-		grid-template-columns: 1fr;
-	}
-	div.project {
-		cursor: pointer;
-	}
-	div.description {
-		display: none;
-	}
-	button.expand-button {
-		display: none;
-	}
-}
-@media only screen and (max-width: 520px) {
-	div#project-container {
-		grid-gap: calc((100vw - 420px) / 2);
-	}
-}
-@media only screen and (max-width: 470px) {
-	div#project-container {
-		grid-gap: calc(100vw * 5 / 94);
-	}
-	div.project {
-		/* width: calc(100vw - 50px); */
-		/* height: calc(((100vw - 50px) * 14) / 21); */
-		width: calc(100vw * 42 / 47);
-		height: calc(100vw * 28 / 47);
-		border-radius: calc(100vw * 3 / 47);
-	}
-	div.thumbnail {
-		height: calc(100vw * 21 / 47);
-	}
-	div.banner {
-		height: calc(100vw * 7 / 47);
-		padding: 0 calc(100vw * 5 / 94);
-	}
-	div.banner h2 {
-		font-size: calc(100vw * 16 / 235);
-	}
-	div.tech-icons {
-		grid-gap: calc(100vw / 47);
-	}
-	div.tech-icons img {
-		height: calc(100vw * 19 / 235);
-	}
-}
-@media (orientation: landscape) and (max-height: 990px) {
-	div#project-container {
-		grid-template-columns: 1fr 1fr;
-	}
-	@media only screen and (max-width: 990px) {
-		div#project-container {
-			grid-gap: calc((100vw - 840px) / 3);
-		}
-	}
-	@media only screen and (max-width: 915px) {
-		div#project-container {
-			grid-gap: 25px;
-		}
-		div.project {
-			width: calc(100vw * 420 / 915);
-			height: calc(100vw * 280 / 915);
-			border-radius: calc(100vw * 30 / 915);
-		}
-		div.thumbnail {
-			height: calc(100vw * 210 / 915);
-		}
-		div.banner {
-			height: calc(100vw * 70 / 915);
-			padding: 0 calc(100vw * 25 / 915);
-		}
-		div.banner h2 {
-			font-size: calc(100vw * 32 / 915);
-		}
-		div.tech-icons {
-			grid-gap: calc(100vw * 10 / 915);
-		}
-		div.tech-icons img {
-			height: calc(100vw * 38 / 915);
-		}
-	}
-}
+/* @media only screen and (max-width: 990px) { */
+/* 	div#project-container { */
+/* 		grid-template-columns: 1fr; */
+/* 	} */
+/* 	div.project { */
+/* 		cursor: pointer; */
+/* 	} */
+/* 	div.description { */
+/* 		display: none; */
+/* 	} */
+/* 	button.expand-button { */
+/* 		display: none; */
+/* 	} */
+/* } */
+/* @media only screen and (max-width: 520px) { */
+/* 	div#project-container { */
+/* 		grid-gap: calc((100vw - 420px) / 2); */
+/* 	} */
+/* } */
+/* @media only screen and (max-width: 470px) { */
+/* 	div#project-container { */
+/* 		grid-gap: calc(100vw * 5 / 94); */
+/* 	} */
+/* 	div.project { */
+/* 		/1* width: calc(100vw - 50px); *1/ */
+/* 		/1* height: calc(((100vw - 50px) * 14) / 21); *1/ */
+/* 		width: calc(100vw * 42 / 47); */
+/* 		height: calc(100vw * 28 / 47); */
+/* 		border-radius: calc(100vw * 3 / 47); */
+/* 	} */
+/* 	div.thumbnail { */
+/* 		height: calc(100vw * 21 / 47); */
+/* 	} */
+/* 	div.banner { */
+/* 		height: calc(100vw * 7 / 47); */
+/* 		padding: 0 calc(100vw * 5 / 94); */
+/* 	} */
+/* 	div.banner h2 { */
+/* 		font-size: calc(100vw * 16 / 235); */
+/* 	} */
+/* 	div.tech-icons { */
+/* 		grid-gap: calc(100vw / 47); */
+/* 	} */
+/* 	div.tech-icons img { */
+/* 		height: calc(100vw * 19 / 235); */
+/* 	} */
+/* } */
+/* @media (orientation: landscape) and (max-height: 990px) { */
+/* 	div#project-container { */
+/* 		grid-template-columns: 1fr 1fr; */
+/* 	} */
+/* 	@media only screen and (max-width: 990px) { */
+/* 		div#project-container { */
+/* 			grid-gap: calc((100vw - 840px) / 3); */
+/* 		} */
+/* 	} */
+/* 	@media only screen and (max-width: 915px) { */
+/* 		div#project-container { */
+/* 			grid-gap: 25px; */
+/* 		} */
+/* 		div.project { */
+/* 			width: calc(100vw * 420 / 915); */
+/* 			height: calc(100vw * 280 / 915); */
+/* 			border-radius: calc(100vw * 30 / 915); */
+/* 		} */
+/* 		div.thumbnail { */
+/* 			height: calc(100vw * 210 / 915); */
+/* 		} */
+/* 		div.banner { */
+/* 			height: calc(100vw * 70 / 915); */
+/* 			padding: 0 calc(100vw * 25 / 915); */
+/* 		} */
+/* 		div.banner h2 { */
+/* 			font-size: calc(100vw * 32 / 915); */
+/* 		} */
+/* 		div.tech-icons { */
+/* 			grid-gap: calc(100vw * 10 / 915); */
+/* 		} */
+/* 		div.tech-icons img { */
+/* 			height: calc(100vw * 38 / 915); */
+/* 		} */
+/* 	} */
+/* } */

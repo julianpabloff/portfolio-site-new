@@ -11,6 +11,7 @@ window.addEventListener('load', function() {
 	}
 
 	let current = 'projects';
+	const siteContent = document.getElementById('site-content');
 
 	function switchTo(target) {
 		let selectedContainer = linkContainers[current];
@@ -18,6 +19,8 @@ window.addEventListener('load', function() {
 
 		selectedContainer = linkContainers[target];
 		selectedContainer.div.style.display = selectedContainer.display;
+
+		console.log(siteContent);
 
 		current = target;
 	}

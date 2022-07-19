@@ -1,9 +1,177 @@
 div#resume-container {
-	width: 60vw;
-	height: 1000px;
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	padding: 20px;
-	outline: 1px solid white;
+	font-family: "Arial";
+	font-size: 14px;
+	color: #333;
+}
+div#resume-container a {
+	color: #333;
+	text-decoration: none;
+}
+div#resume-container a:hover {
+	color: #999;
+	text-decoration: underline;
+}
+div#resume-container h1 {
+	letter-spacing: 2.5px;
+}
+div#resume-container h2 {
+	color: #999;
+	font-size: 18px;
+	font-weight: lighter;
+}
+div#resume-container h3 {
+	letter-spacing: 1.5px;
+	margin-bottom: 10px;
+}
+div#resume-container h4 {
+	font-size: 15px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+	div#resume-container h4 span {
+		font-weight: lighter;
+		color: #555;
+	}
+	div#resume-container h4 span:before {
+		content: '//';
+		margin: 0 7px 0 9px;
+	}
+div#resume-container p {
+	margin-bottom: 5px;
+}
+div#resume-container p.bold { font-weight: bolder; }
+div#resume-container span.bold { font-weight: bolder; }
+div#resume-container ul {
+	padding-left: 1em;
+	margin-bottom: 7px;
+}
+	div#resume-container ul li {
+		margin-bottom: 3px;
+	}
+div#resume-container div.indent {
+	padding-left: 1em;
+}
+
+div#resume-container div.page {
+	width: 750px;
+	height: 1020px;
+	padding: 50px 50px 0 50px;
+	background-color: white;
+}
+div#resume-container header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+	div#resume-container div.contact_info {
+		width: 350px;
+		text-align: right;
+	}
+		div.contact_info p, div.contact_info a {
+			margin: 0;
+		}
+div#resume-container main#page1 {
+	display: flex;
+	justify-content: space-between;
+}
+	div#resume-container div.projects {
+		padding: 0 20px 0 0;
+	}
+		div#resume-container div.item {
+			margin-bottom: 20px;
+		}
+			div#resume-container div.title {
+				display: flex;
+			}
+	div#resume-container div.skills {
+		width: 180px;
+	}
+		div#resume-container div.skill {
+			margin-bottom: 15px;
+		}
+div#resume-container footer {
+	width: 850px;
+	height: 30px;
+	background-color: white;
+	text-align: center;
+	margin-bottom: 30px;
+}
+	div#resume-container footer p {
+		color: #aaa;
+	}
+
+@media only screen and (max-width: 850px) {
+	div#resume-container body {
+		align-items: flex-start;
+	}
+}
+
+@media print  {
+	div#resume-container body {
+		padding: 0;
+	}
+	div.page {
+	}
+	div#resume-container footer {
+		margin: 0;
+	}
+	div#resume-container div.title a {
+		display: none;
+	}
+}
+
+div#resume-container div.button-container {
+	width: 100vw;
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	bottom: 75px;
+}
+div#resume-container a.button {
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+	position: relative;
+	border: 3px solid white;
+	border-radius: 10px;
+	padding: 10px 40px;
+	font-size: 18px;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+}
+div#resume-container.button:before {
+	content: '';
+	position: absolute;
+	width: 20%;
+	height: 20%;
+	left: 40%;
+	top: 40%;
+	background-color: #2f3f5b;
+	opacity: 0;
+	border-radius: 25px;
+	transition: all .2s ease-out;
+	z-index: -1;
+}
+div#resume-container.button:hover:before {
+	width: 120%;
+	height: 120%;
+	left: -10%;
+	top: -10%;
+	opacity: 1;
+}
+div#resume-container a.button:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #151f31;
+	border-radius: 7px;
+	z-index: -2;
 }

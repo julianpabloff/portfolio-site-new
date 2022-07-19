@@ -15,6 +15,7 @@
 </head>
 
 <body>
+	<div id="site-content"></div>
 	<div id="main-container">
 		<nav id="link-list">
 			<a class="selected" id="projects-nav">Projects</a>
@@ -81,7 +82,210 @@
 		</div>
 
 		<div id="resume-container">
-			<p>Coming soon</p>
+			<div class="button-container">
+				<a href="julianpabloff.pdf" target="_blank" class="button" id="download-button" download>Download PDF</a>
+			</div>
+			<div class="page">
+				<header>
+					<div>
+						<h1>JULIAN PABLOFF</h1>
+						<h2>Full Stack Developer</h2>
+					</div>
+					<div class="contact_info">
+						<span><a href="mailto:julianpabloff@gmail.com">julianpabloff@gmail.com</a> || (253) 777-9682</span>
+						<a href="https://www.linkedin.com/in/julianpabloff" target="_blank">https://www.linkedin.com/in/julianpabloff</a>
+						<a href="https://www.github.com/julianpabloff" target="_blank">https://www.github.com/julianpabloff</a>
+					</div>
+				</header>
+
+				<main id="page1">
+					<div class="projects">
+						<h3>PROJECTS</h3>
+						<div class="item">
+							<div class="title">
+								<h4>Instaspam - React</h4>
+								<a href="https://github.com/Ne0nWinds/InstaSpam" target="_blank">[Click to view]</a>
+							</div>
+							<p>A photo sharing website similar to Instagram in which users can upload images and like other people's images.</p>
+							<p>Technologies Used:</p>
+							<ul>
+								<li><b>React:</b> used to make the app run on a single page, like Instagram</li>
+								<li><b>Node.js:</b> URL routing, data management,  and database design</li>
+								<li><b>Express:</b> framework for communicating with the database</li>
+								<li><b>MongoDB:</b> image storage and user info, and relationships between the two</li>
+							</ul>
+							<p>Other Features:</p>
+							<ul>
+								<li>Login and register page dynamically changes depending if the username entered exists in the database</li>
+								<li>For file uploading we used Multer, and implemented drag and drop uploading</li>
+							</ul>
+						</div>
+						<div class="item">
+							<div class="title">
+								<h4>Wedding Planner - C#/.NET</h4>
+								<a href="https://www.github.com/julianpabloff/wedding_planner" target="_blank">[Click to view]</a>
+							</div>
+							<p>A website for creating wedding events. Users can create an account, add events, and RSVP.</p>
+							<p>Technologies Used:</p>
+							<ul>
+								<li><b>.NET Framework:</b> used for all MVC (Models Views Contorllers) operations</li>
+								<li><b>Entity Framework:</b> database communication that utilizes C# object-oriented code</li>
+								<li><b>MySQL:</b> database design - many to many relationships and <b>CRUD</b> operations</li>
+							</ul>
+							<p>Other Features:</p>
+							<ul>
+							<li><span>Implements login and registration</span></li>
+							</ul>
+						</div>
+						<div class="item">
+							<div class="title">
+								<h4>BomberMan - Javascript</h4>
+								<a href="https://github.com/Ne0nWinds/BomberMan" target="_blank">[Click to view]</a>
+							</div>
+							<p>Inspired by a classic videogame, this app is a multiplayer game where you try to blow up the other players to win.</p>
+							<p>Technologies used:</p>
+							<ul>
+								<li><b>Node.js:</b> server logic and managing players</li>
+								<li><b>Socket.io:</b> enables multiple users to connect to the server</li>
+								<li>Implements <b>object-oriented programming</b> with separate classes for game logic, display, controllers, etc.</li>
+								<li>Random item drops that modify player speed and bomb power</li>
+							</ul>
+						</div>
+						<div class="item">
+							<div class="title">
+								<h4>Ratscrew - Javascript</h4>
+								<a href="https://github.com/julianpabloff/ratscrew" target="_blank">[Click to view]</a>
+							</div>
+							<p>A multiplayer card game application that mimics the game Egyptian Ratscrew. It supports 2 to 4 players and runs in the terminal.</p>
+							<ul>
+								<li>Made using <b>Node.js</b> and its console.log methods to dynamically move the cursor and draw the screen with high efficiency</li>
+								<li>Implements <b>object-oriented programming</b> with separate classes for game rules, cards, players, controllers, and display</li>
+								<li>Minimalist ASCII design with health bars to indicate how many cards you have</li>
+								<li>Currently working on an online multiplayer system that utilizes TCP sockets</li>
+							</ul>
+						</div>
+					</div>
+					<div class="skills">
+						<h3>SKILLS</h3>
+						<div class="skill">
+							<h4>Languages</h4>
+							<ul>
+								<li>Javascript</li>
+								<li>Typescript</li>
+								<li>Python</li>
+								<li>C#</li>
+								<li>SQL</li>
+							</ul>
+						</div>
+						<div class="skill">
+							<h4>Front End</h4>
+							<ul>
+								<li>React</li>
+								<li>Angular</li>
+								<li>HTML5</li>
+								<li>CSS3</li>
+								<li>Bootstrap</li>
+								<li>jQuery</li>
+								<li>Ajax</li>
+							</ul>
+						</div>
+						<div class="skill">
+							<h4>Back End</h4>
+							<ul>
+								<li>MySQL</li>
+								<li>MongoDB</li>
+								<li>Node.js</li>
+								<li>PySpark</li>
+								<li>Azure Databricks</li>
+							</ul>
+						</div>
+						<div class="skill">
+							<h4>Libraries & Frameworks</h4>
+							<ul>
+								<li>.NET Core</li>
+								<li>ASP.NET</li>
+								<li>Entity Framework</li>
+								<li>Flask</li>
+								<li>Django</li>
+								<li>Express</li>
+								<li>Mongoose</li>
+							</ul>
+						</div>
+						<h3>SOFT SKILLS</h3>
+						<ul>
+							<li>Collaboration</li>
+							<li>Problem Solving</li>
+							<li>Detail-oriented</li>
+							<li>Adaptive Learner</li>
+							<li>Teaching</li>
+						</ul>
+					</div>
+				</main>
+			</div>
+			<footer>
+				<p>Page 1 of 2</p>
+			</footer>
+			<div class="page">
+				<main id="page2">
+					<div class="work">
+						<h3>WORK EXPERIENCE</h3>
+						<div class="item">
+							<h4>Full Stack Junior Software Developer (Full Time) - MacDonald Miller (Seattle, WA)<span>Jan 2021 - Present</span></h4>
+							<p>The purpose of this project was to create an web application that creates and manages estimates for construction jobs for the company. I worked on a small team with three other developers so I was able to play a bigger role than before in the design and development of the application.</p>
+							<h4>Angular, C#, SQL<span>MacCap</span></h4>
+							<ul>
+								<li>Utilized an <span class="bold">Agile workflow</span> and <span class="bold">Azure DevOps</span> features to stay organized and work efficiently</li>
+								<li>Used my front end experience to greatly improve the visual look and user experience of key parts of the application</li>
+								<li>Used my UX experience to make suggestions to the team about how to improve the logic and operation of features</li>
+								<li>Learned more about SQL: how to make transactions, stored procedures, and do schema comparisons, for example</li>
+							</ul>
+						</div>
+						<div class="item">
+							<h4>Full Stack Software Developer (Full Time) - Accenture (Redmond, WA)<span>Sept. 2020 - Dec. 2021</span></h4>
+							<p>This consulting job gave me exposure to many different projects and technologies. I was assigned to the Microsoft account and worked on various projects such as:</p>
+							<div class="indent">
+								<h4>Angular, Node.js, PostgreSQL<span>Digital Value Delivery</span></h4>
+								<ul>
+									<li>A Microsoft tool for creating Business Scenarios to estimate revenue for various industries and accounts</li>
+									<li>Utilized my full stack experience to make improvements to the front end design, API logic, and database structure</li>
+									<li>Created a dynamic filtering tool that changes its available selections based on the filtered content</li>
+								</ul>
+								<h4>Angular, C#, SQL<span>ATOM Portal</span></h4>
+								<ul>
+									<li>Full stack web application for managing and visulizing Microsoft incident tickets, teams, and shifts</li>
+									<li>Worked with front end, API, and back end code for various site improvements and new features</li>
+								</ul>
+								<h4>PySpark, Azure Databricks<span>Microsoft Federal</span></h4>
+								<ul>
+									<li>Developed data reports for contract data</li>
+									<li>Used PySpark to make complex queries and functions to satisfy data mapping requirements</li>
+								</ul>
+								<h4>C#, Microsoft Bot Framework<span>Azure Chat Bot</span></h4>
+								<ul>
+									<li>Developed a chat bot that utilizes Azure Dev Ops APIs to help users create user stories</li>
+									<li>Gained experience with Agile workflow, submitting code, and planning out sprints</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="education">
+						<h3>EDUCATION</h3>
+						<div class="item">
+							<div class="title">
+								<h4>Coding Dojo (Bellevue, WA)</h4>
+								<a href="https://certificate.dojo.news/9487851b-7a06-4494-9e7f-b852196b7a6d" target="_blank">[Click to view]</a>
+							</div>
+							<p>Received a Certificate of Completion in Full Stack Web Development as a result of over 1000 hours of studying three separate stacks and creating functional web applications.</p>
+						</div>
+						<div class="item">
+							<h4>Puyallup High School (Puyallup, WA)</h4>
+							<p>Took Advanced Placement courses in computer science, natural science, and math. Scored a perfect score on the final computer science AP Exam and recieved an A in the class. Graduated with an 3.00 overall GPA. </p>
+						</div>
+					</div>
+				</main>
+			</div>
+			<footer>
+				<p>Page 2 of 2</p>
 		</div>
 
 		<div id="contact-container">
@@ -164,10 +368,9 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/ratscrew1.jpg">
+								<img class="gallery-img collapsed" src="img/ratscrew2.jpg">
+								<img class="gallery-img collapsed" src="img/ratscrew3.jpg">
 							</div>
 							<div class="image-scroll-layer"></div>
 						</div>
@@ -240,15 +443,15 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/solitaire1.jpg">
+								<img class="gallery-img collapsed" src="img/solitaire2.jpg">
+								<img class="gallery-img collapsed" src="img/solitaire3.jpg">
+								<img class="gallery-img collapsed" src="img/solitaire4.jpg">
 							</div>
 						</div>
 					</div>
 					<div class="modal-description modal-main-element">
-						<p>This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew.</p>
+						<p>This is a minimalist solitaire app that runs in the terminal. It features user configurable color modes and utilizes a very clever method of displaying a canvas in the terminal by defining individual sections of the screen that can be layered on top of one another (like Photoshop) to dynamically draw and update whatever you want on the screen. Everything has been optimizeds so that it can draw to the screen and update with virtually no delay.</p>
 					</div>
 				</main>
 				<div class="modal-background solitaire-background"></div>
@@ -312,18 +515,15 @@
 						</div>
 						<div class="modal-gallery-images">
 							<div class="gallery-images-container">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
-								<img class="gallery-img collapsed" src="img/lily.jpg">
+								<img class="gallery-img collapsed" src="img/bomberman1.jpg">
+								<img class="gallery-img collapsed" src="img/bomberman2.jpg">
+								<img class="gallery-img collapsed" src="img/bomberman3.jpg">
+								<img class="gallery-img collapsed" src="img/bomberman4.jpg">
 							</div>
 						</div>
 					</div>
 					<div class="modal-description modal-main-element">
-						<p>This program is a local multiplayer terminal app for playing the fast-paced game Egyptian Ratscrew.</p>
+						<p>This is a simple (but actually really fun) multiplayer game my friend and I created when we were in a coding bootcamp together. It was our end of class project for the javascript related part of the course. We made this to learn advanced javascript techniques as well as how sockets work.</p>
 					</div>
 				</main>
 				<div class="modal-background bomberman-background"></div>

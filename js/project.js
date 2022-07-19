@@ -279,10 +279,12 @@ window.addEventListener('load', function() {
 
 	let windowWidth = document.documentElement.clientWidth;
 	let windowHeight = document.documentElement.clientHeight;
-	let mobileMode = windowWidth < 990 || windowHeight < 990;
+	// let mobileMode = windowWidth < 990 || windowHeight < 990;
+	let mobileMode = false;
 	window.addEventListener('resize', event => {
 		windowWidth = document.documentElement.clientWidth;
 		windowHeight = document.documentElement.clientHeight;
-		mobileMode = windowWidth < 990 || windowHeight < 990;
+		// mobileMode = windowWidth < 990 || windowHeight < 990;
+		mobileMode = false;
 	});
 });
