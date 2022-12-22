@@ -104,6 +104,7 @@ a.deploy-button {
 	border-radius: 10px;
 	margin-left: 20px;
 	transition: background-color .2s;
+	cursor: pointer;
 }
 a.deploy-button svg {
 	height: 25px;
