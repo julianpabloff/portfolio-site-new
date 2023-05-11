@@ -1,4 +1,4 @@
-import { forEachElement } from './utils/functions.js';
+import { forEachElement } from './utils/elements.js';
 
 export default function Index() {
 	const headerBackground = document.getElementById('header-background');
@@ -14,6 +14,7 @@ export default function Index() {
 		}
 		else headerBackground.style.opacity = '1';
 	}
+	onScroll();
 
 	function onResize() {
 		setThreshold();
@@ -34,6 +35,7 @@ export default function Index() {
 			overlay.style.opacity = menu.style.opacity = '1'
 			menu.style.left = '0';
 		}, 10);
+		menuButton.style.transform = "rotate(0.5turn)";
 	}
 
 	function hideMenu() {
@@ -41,6 +43,7 @@ export default function Index() {
 		setTimeout(() => overlay.style.display = menu.style.display = 'none', 200);
 		menu.style.left = '-50%';
 		menu.style.opacity = '0';
+		menuButton.style.transform = "";
 	}
 
 	menuButton.addEventListener('click', revealMenu);
