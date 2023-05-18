@@ -2,10 +2,10 @@ import {
 	activateLinks,
 	createLinkEvents,
 	assignContainer,
-	loadHTML,
-	loadCSS
+	insertHTML,
+	insertCSS
 } from './view-loader.js';
-import { addIntersectionAnimations } from './utils/animations.js';
+import { searchForAnimations } from './utils/animations.js';
 import addHandlers from './utils/events.js';
 
 import Index from './index.js';
@@ -13,7 +13,7 @@ import Home from './views/home/home.js';
 
 const routes = {
 	'/': {
-		name: 'home',
+		selector: 'home',
 		template: '/views/home/home.html',
 		styles: '/views/home/home.css',
 		initializer: Home
@@ -37,21 +37,34 @@ function getView(pathname) {
 	return null; // 404
 }
 
+/*
+async function onReady() {
+	activateLinks();
+	const storedScrollY = localStorage.getItem('scrollpos');
+	window.scrollTo(0, storedScrollY)
+	localStorage.setItem('scrollpos', null);
+	indexHandlers.toggleLoading(false);
+}
+*/
+
 let root;
 async function handleLocation() {
+	// indexHandlers.toggleLoading(true);
 	const pathname = window.location.pathname;
 	const view = getView(pathname);
 	if (view) {
-		const viewContainer = assignContainer(view.name);
-		if (view.styles) await loadCSS(view.styles, viewContainer);
-		if (view.template) await loadHTML(view.template, root, viewContainer);
+		const viewContainer = assignContainer(view.selector);
+		if (view.styles) await insertCSS(view.styles, viewContainer);
+		if (view.template) await insertHTML(view.template, root, viewContainer);
 		if (view.initializer) {
+			// const handlers = view.initializer(onReady);
 			const handlers = view.initializer();
 			if (handlers) addHandlers('root', handlers);
 		}
-		addIntersectionAnimations(root);
+		searchForAnimations(root);
 	} else {
 		root.innerHTML = '';
+		// indexHandlers.toggleLoading(false);
 	}
 	activateLinks();
 	const storedScrollY = localStorage.getItem('scrollpos');
@@ -74,8 +87,9 @@ async function preLoad(url) {
 }
 
 window.onpopstate = handleLocation;
+let indexHandlers;
 document.addEventListener('DOMContentLoaded', () => {
-	const indexHandlers = Index();
+	indexHandlers = Index();
 	addHandlers('index', indexHandlers);
 	root = document.getElementById('root');
 	createLinkEvents(handleLocation, preLoad);

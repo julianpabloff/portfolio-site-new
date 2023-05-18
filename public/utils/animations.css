@@ -1,0 +1,64 @@
+.trapezoid {
+	height: 500px;
+	position: relative;
+	background-color: var(--woolley-blue);
+}
+
+.trapezoid div.trapezoid-content-container {
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+}
+
+.trapezoid.right div.trapezoid-content-container {
+	align-items: flex-end;
+}
+
+.trapezoid div.trapezoid-content {
+	max-width: fit-content;
+}
+
+.trapezoid div.trapezoid-background {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--woolley-orange);
+	/* transition: clip-path 0.1s; */
+}
+
+.sprite-sheet-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.sprite-sheet-container div.frame {
+	width: 0;
+	height: 0;
+}
+
+.sprite-sheet-container div.frame.landscape {
+	width: fit-content;
+	height: 100%;
+}
+
+.sprite-sheet-container div.frame.portrait {
+	width: 100%;
+	height: fit-content;
+}
+
+
+.children-fade-in.hidden {
+	opacity: 0;
+	transform: scale(1.2);
+}
+
+.children-fade-in.revealed {
+	opacity: 1;
+	transform: none;
+	transition: transform 0.6s, opacity 0.8s;
+}

@@ -1,4 +1,6 @@
-import { getAbsoluteOffset } from './elements.js';
+import { loadCSS } from '../view-loader.js';
+import { forEachElement, getAbsoluteOffset } from './elements.js';
+import { addAnimationToListeners } from './events.js';
 
 export async function wait(milliseconds) {
 	return new Promise(resolve => setTimeout(resolve, milliseconds));
@@ -17,6 +19,15 @@ export async function intervalIterate(step, count, callback) {
 		}, step);
 	});
 }
+
+loadCSS('/utils/animations.css');
+
+const getTValue = (start, point, end) => (point - start) / (end - start);
+
+
+// Configurable Animations
+//     must be instanciated in a view js file
+//     configurable on an element to element basis
 
 export class ScrollFadeInElement {
 	constructor(element, inPadding = 0, threshold = 0.5) {
@@ -39,7 +50,8 @@ export class ScrollFadeInElement {
 		// scrollY value that the element is fully faded in
 		const end = top + height * this.threshold - windowHeight / 2;
 
-		let opacity = (scrollY - beginning) / (end - beginning);
+		// let opacity = (scrollY - beginning) / (end - beginning);
+		let opacity = getTValue(beginning, scrollY, end);
 		if (opacity < 0) opacity = 0;
 		else if (opacity > 1) opacity = 1;
 
@@ -85,10 +97,6 @@ class SpriteSheet {
 		const { container, filepath, columns, count, imgWidth, imgHeight } = spriteSheetData;
 		for (const [key, value] of Object.entries(spriteSheetData)) this[key] = value;
 
-		container.style.overflow = 'hidden';
-		container.style.display = 'flex';
-		container.style.alignItems = container.style.justifyContent = 'center';
-
 		const frame = document.createElement('div');
 		frame.style.aspectRatio = imgWidth.toString() + '/' + imgHeight.toString();
 		frame.style.backgroundImage = 'url(' + filepath + ')';
@@ -100,6 +108,7 @@ class SpriteSheet {
 		this.onResize();
 
 		container.innerHTML = '';
+		container.classList.add('sprite-sheet-container');
 		container.appendChild(frame);
 
 	}
@@ -108,25 +117,18 @@ class SpriteSheet {
 	get height() { return this.frame.clientHeight; }
 
 	toFrame(index) {
-		if (index != this.index) {
-			const x = index % this.columns;
-			const y = Math.floor(index / this.columns);
-			const rows = Math.ceil(this.count / this.columns);
-			this.frame.style.backgroundPositionX = `calc(100% * ${x} / ${this.columns - 1}`;
-			this.frame.style.backgroundPositionY = `calc(100% * ${y} / ${rows - 1}`;
-			this.index = index;
-		}
+		const x = index % this.columns;
+		const y = Math.floor(index / this.columns);
+		const rows = Math.ceil(this.count / this.columns);
+		this.frame.style.backgroundPositionX = `calc(100% * ${x} / ${this.columns - 1})`;
+		this.frame.style.backgroundPositionY = `calc(100% * ${y} / ${rows - 1})`;
+		this.index = index;
 	}
 
 	onResize() {
-		this.frame.style.width = this.frame.style.height = '0';
-		if (this.container.clientWidth >= this.container.clientHeight) {
-			this.frame.style.width = 'fit-content';
-			this.frame.style.height = '100%';
-		} else {
-			this.frame.style.width = '100%';
-			this.frame.style.height = 'fit-content';
-		}
+		this.frame.className = 'frame';
+		const landscape = this.container.clientWidth >= this.container.clientHeight;
+		this.frame.className = landscape ? 'frame landscape' : 'frame portrait';
 	}
 }
 
@@ -149,7 +151,7 @@ export class SpriteSheetScroll {
 		if (scrollY >= start && scrollY <= end) {
 			let index = Math.floor((scrollY - center) / this.interval) % this.sprite.count;
 			if (index < 0) index += this.sprite.count;
-			this.sprite.toFrame(index);
+			if (index != this.sprite.index) this.sprite.toFrame(index);
 		}
 	}
 	
@@ -158,6 +160,76 @@ export class SpriteSheetScroll {
 	}
 }
 
+// Scroll Animations
+//     must have an onScroll() and onResize() <-- no arguments!
+//     must not have any constructor parameters other than element
+//     which means behavior is not configurable element to element
+//     you can still add configuarablity throught element class names
+
+export class Trapezoid { // class="trapezoid {left/right}"
+	constructor(container) {
+		const content = document.createElement('div');
+		content.classList.add('trapezoid-content');
+		if (container.hasChildNodes())
+			content.replaceChildren(...container.children);
+
+		const contentContainer = document.createElement('div');
+		contentContainer.classList.add('max-w', 'trapezoid-content-container');
+		contentContainer.appendChild(content);
+
+		const background = document.createElement('div');
+		background.classList.add('trapezoid-background');
+
+		container.classList.add('max-w-container');
+		container.append(contentContainer, background);
+
+		if (container.classList.contains('left')) this.draw = this.drawLeftTrapezoid;
+		else if (container.classList.contains('right')) this.draw = this.drawRightTrapezoid;
+
+		this.container = container;
+		this.content = content;
+		this.background = background;
+		this.delta = background.clientHeight / 4;
+		this.displacement = 150;
+
+		this.onResize();
+	}
+
+	get distance() { return getTValue(this.start, window.scrollY, this.end) * this.displacement; }
+
+	drawLeftTrapezoid() {
+		const edgeX = this.contentX * 2 + this.contentW + this.displacement - this.distance;
+		this.background.style.clipPath =
+			`polygon(0 0, ${edgeX + this.delta}px 0, ${edgeX - this.delta}px 100%, 0 100%)`;
+	}
+
+	drawRightTrapezoid() {
+		const distanceToEdge = window.innerWidth - this.contentX - this.contentW;
+		const edgeX = this.contentX - distanceToEdge - this.displacement + this.distance;
+		this.background.style.clipPath =
+			`polygon(${edgeX - this.delta}px 0, 100% 0, 100% 100%, ${edgeX + this.delta}px 100%)`;
+	}
+
+	onScroll() {
+		const scrollY = window.scrollY;
+		if (scrollY >= this.start && scrollY <= this.end) this.draw();
+	}
+
+	onResize() {
+		const windowHeight = window.innerHeight;
+		this.start = getAbsoluteOffset(this.background, 'top') - windowHeight;
+		this.end = this.start + windowHeight + this.background.clientHeight;
+		this.contentX = getAbsoluteOffset(this.content, 'left');
+		this.contentW = this.content.clientWidth;
+		this.onScroll(window.scrollY)
+	}
+}
+
+
+// IntersectionObserver Animations
+//     initializer: prepares element for the animation
+//     options: IntersectionObserver options
+//     run: runs the animation
 
 export class IntersectionAnimation {
 	constructor({ initializer, options, run }) {
@@ -179,18 +251,13 @@ export class IntersectionAnimation {
 	}
 }
 
-// IntersectionObserver Animations
-//     initializer: prepares element for the animation
-//     options: IntersectionObserver options
-//     run: runs the animation
-
 const slideout = {
 	initializer: element => {
 		const x = getAbsoluteOffset(element, 'left');
 		const width = element.clientWidth;
 		const leftSide = x + width / 2 < window.innerWidth / 2;
-		element.dataset.side = leftSide ? 'left' : 'right';
 		element.style.opacity = '0';
+		element.dataset.side = leftSide ? 'left' : 'right';
 	},
 	options: {
 		root: null,
@@ -217,10 +284,8 @@ const slideout = {
 
 const childrenFadeIn = {
 	initializer: container => {
-		for (const child of container.children) {
-			child.style.opacity = '0';
-			child.style.transform = 'scale(1.2)';
-		}
+		for (const child of container.children)
+			child.classList.add('children-fade-in', 'hidden');
 	},
 	options: {
 		root: null,
@@ -231,25 +296,33 @@ const childrenFadeIn = {
 		const count = container.children.length;
 		intervalIterate(150, count, i => {
 			const child = container.children.item(i);
-			child.style.transition = 'transform 0.6s, opacity 0.8s';
-			child.style.transform = 'none';
-			child.style.opacity = '1';
+			child.classList.replace('hidden', 'revealed');
 		});
 	}
 }
 
-// For using animations elsewhere (without the className)
+// For using intersection animations elsewhere (without the className)
 export function SlideoutObserver() { return new IntersectionAnimation(slideout) }
 export function ChildrenFadeInObserver() { return new IntersectionAnimation(childrenFadeIn) }
 
-// Automatically set up IntersectionObserver Animations based on className
-const classMap = new Map()
+// Automatically set up animations based on className
+const intersectionClassMap = new Map()
 	.set('slideout', new SlideoutObserver())
 	.set('fade-in-children', new ChildrenFadeInObserver())
 
-// Call from the router, to add className based animation elements at the root level
-export function addIntersectionAnimations(container) {
-	classMap.forEach((animation, className) => {
+const scrollClassMap = new Map()
+	.set('trapezoid', Trapezoid)
+
+export function searchForAnimations(container) {
+	scrollClassMap.forEach((ScrollAnimation, className) => {
+		const elements = container.getElementsByClassName(className);
+		if (elements.length) for (const element of elements) {
+			const animation = new ScrollAnimation(element);
+			addAnimationToListeners(animation);
+		}
+	});
+
+	intersectionClassMap.forEach((animation, className) => {
 		const elements = container.getElementsByClassName(className);
 		if (elements.length) for (const element of elements) animation.add(element);
 	});
