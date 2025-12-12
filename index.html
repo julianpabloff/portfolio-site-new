@@ -2,9 +2,485 @@
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-	<title>Julian Pabloff ADMIN</title>
+	<title>Julian Pabloff</title>
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/links.css">
+	<link rel="stylesheet" href="css/project.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<link rel="stylesheet" href="css/resume.css">
+	<link rel="stylesheet" href="css/contact.css">
+	<script src="js/main.js"></script>
+	<script src="js/project.js"></script>
 </head>
 
 <body>
-	<h1>Super Secret Stuff heh</h1>
+	<div id="site-content"></div>
+	<div id="main-container">
+		<!-- <img src="img/julian-angular-signature.svg"/> -->
+		<nav id="link-list">
+			<a class="selected" id="projects-nav">Projects</a>
+			<a id="resume-nav">Resume</a>
+			<a id="contact-nav">Contact</a>
+			<div id="highlight"></div>
+		</nav>
+		<div id="project-container">
+			<div class="project" id="woolley">
+				<div class="thumbnail woolley-background"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Woolley Creative</h2>
+						<div class="tech-icons">
+							<img class="HTML5" src="img/technologies/html.png">
+							<img class="CSS3" src="img/technologies/css.png">
+							<img class="Javascript" src="img/technologies/javascript.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>A multi-page site using a custom-built single page application framework, with detailed scroll based animations and motion that compliments the initial site design</p>
+					</div>
+				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
+			</div>
+			<div class="project" id="mortgage">
+				<div class="thumbnail mortgage-background"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Counselors Mortgage</h2>
+						<div class="tech-icons">
+							<img class="React" src="img/technologies/react.png">
+							<img class="Javascript" src="img/technologies/javascript.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>A multi-page site built with React with simple animations, centered around a simple, intuitive design to fit the client's needs</p>
+					</div>
+				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
+			</div>
+			<div class="project" id="thompson">
+				<div class="thumbnail thompson-background"></div>
+				<div class="moving-div">
+					<div class="banner">
+						<h2>Thompson Advisory</h2>
+						<div class="tech-icons">
+							<img class="HTML5" src="img/technologies/html.png">
+							<img class="CSS3" src="img/technologies/css.png">
+							<img class="Javascript" src="img/technologies/javascript.png">
+						</div>
+					</div>
+					<div class="description">
+						<p>A small project with a quick turnaround - a one pager website with an eye catching banner, contact form, and basic info</p>
+					</div>
+				</div>
+				<button class="expand-button">
+					<span>Select</span>
+				</button>
+			</div>
+		</div>
+
+		<div id="resume-container">
+			<header>
+				<div>
+					<h1>Julian Pabloff</h1>
+					<p>Full Stack Software Developer</p>
+				</div>
+				<div class="contact-info">
+					<a href="mailto:julianpabloff@gmail.com">julianpabloff@gmail.com</a>
+					<p>(253) 777-9682</p>
+					<p>Austin, TX</p>
+				</div>
+			</header>
+			<div class="item">
+				<div class="main">
+					<div>
+						<h3>Freelance Web Development</h3>
+						<div class="item-info">
+							<div>
+								<img src="img/location.png"/>
+								<p>Austin, TX</p>
+								<!-- <p>Seattle, WA</p> -->
+							</div>
+							<div>
+								<img src="img/calendar.png"/>
+								<p>Aug. 2023 - Present</p>
+							</div>
+						</div>
+					</div>
+					<p>Using my skills from my work experience and knowledge of the latest web technologies, I built websites from scratch for local small businesses. Below are some of my latest projects, which are live at the provided urls.</p>
+					<div>
+						<p>
+							<b>Counselors Mortgage</b> -
+							<a href="https://counselorsmortgage.com/" target="_blank">https://counselorsmortgage.com/</a>
+						</p>
+						<p>I created a complete site with <b>React</b> centered around simplicity and clear calls to action, with a friendly, minimal design, using <b>Figma</b> to iterate the design and get client feedback.</p>
+					</div>
+					<div>
+						<p>
+							<b>Thompson Advisory, LLC</b> -
+							<a href="https://thompsonadvisoryllc.com/">https://thompsonadvisoryllc.com/</a>
+						</p>
+						<p>This client just needed a simple one page site with some info and a contact form, so I quickly turned around a page with a nice looking design and some animation.</p>
+					</div>
+					<div>
+						<p>
+							<b>Woolley Creative</b> -
+							<a href="https://woolleycreative.com" target="_blank">https://woolleycreative.com</a>
+						</p>
+						<p>For this project I decided to make a custom single page application framework in raw Javascript, and make an animation framework on top of that. This site contains many different and interesting scroll animations that integrate with the client's site design.</p>
+					</div>
+				</div>
+				<ul>
+					<li>HTML5</li>
+					<li>CSS3</li>
+					<li>Javascript</li>
+					<li>React</li>
+					<li>Figma</li>
+					<li>Responsive Design</li>
+					<li>UI/UX</li>
+					<li>SPA</li>
+					<li>Scroll Animations</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div class="main">
+					<h3>Front End Software Developer - Microsoft (Insight Global)</h3>
+					<div class="item-info">
+						<div>
+							<img src="img/location.png"/>
+							<p>Seattle, WA</p>
+						</div>
+						<div>
+							<img src="img/calendar.png"/>
+							<p>Feb. 2023 - Sept. 2023</p>
+						</div>
+					</div>
+					<p>This position was on a small team of developers creating a web application for sending and managing customer emails. Being the sole front-end developer, I was responsible for the look and feel of the entire product. I leveraged modern technologies to efficiently design, build, and test the application.</p>
+					<ul>
+						<li>Organized meetings to discuss my designs and ideas for new site features</li>
+						<li>Worked on developing and testing each front end feature</li>
+						<li>Conducted code reviews across team members to ensure synchronicity and quality code</li>
+					</ul>
+				</div>
+				<ul>
+					<li>React</li>
+					<li>Typescript</li>
+					<li>Custom Hooks</li>
+					<li>React Testing Library</li>
+					<li>Jest</li>
+					<li>YAML</li>
+					<li>Azure DevOps</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div class="main">
+					<h3>Software Developer - MacDonald Miller</h3>
+					<div class="item-info">
+						<div>
+							<img src="img/location.png"/>
+							<p>Seattle, WA</p>
+						</div>
+						<div>
+							<img src="img/calendar.png"/>
+							<p>Jan. 2022 - Jul. 2022</p>
+						</div>
+					</div>
+					<p>The purpose of this project was to create a web application that creates and manages estimates for construction jobs for the company. I worked on a small team with three other developers so I was able to play a bigger role than before in the design and development.</p>
+					<ul>
+						<li>Utilized an <b>Agile workflow</b> and <b>Azure DevOps</b> features to stay organized and work efficiently.</li>
+						<li>With my front end experience, I took a leading role in the visual design and user experience of key parts of the application.</li>
+						<li>Used my <b>UX</b> experience to make suggestions to the team and project manager about how to improve the logic and operation of features.</li>
+						<li>Used <b>SQL</b> transactions, stored procedures, and schema comparisons for back end tasks</li>
+					</ul>
+				</div>
+				<ul>
+					<li>Angular</li>
+					<li>C#</li>
+					<li>UI/UX</li>
+					<li>SQL</li>
+					<li>Agile Workflow</li>
+					<li>Azure DevOps</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div class="main">
+					<h3>Full Stack Software Developer - Accenture</h3>
+					<div class="item-info">
+						<div>
+							<img src="img/location.png"/>
+							<p>Redmond, WA</p>
+						</div>
+						<div>
+							<img src="img/calendar.png"/>
+							<p>Sept. 2020 - Dec. 2021</p>
+						</div>
+					</div>
+					<p>Working for a consulting firm gave me exposure to many different projects and technologies. I worked on various projects for Microsoft</p>
+					<ul style="margin-bottom: 5px">
+						<li><b>Angular, Node.js, PostgreSQL:</b> A tool for creating business scenarios and estimates. I created a dynamic filtering tool that changes its available selections based on the filtered content to make a large list of filters easy to manage as a user.</li>
+						<li><b>Angular, C#, SQL:</b> A Full stack web application for managing and visulizing Microsoft incident tickets. I worked with front end, API, and back end code for various site improvements and features.</li>
+					</ul>
+				</div>
+				<ul>
+					<li>Angular</li>
+					<li>C#</li>
+					<li>SQL</li>
+					<li>Node.js</li>
+					<li>Azure DevOps</li>
+				</ul>
+			</div>
+			<div class="button-container">
+				<a href="julianpabloff.pdf" target="_blank" class="button" id="download-button" download>Download PDF</a>
+			</div>
+		</div>
+
+		<div id="contact-container">
+			<h1>Get in touch</h1>
+			<div class="contact-links">
+				<a href="mailto:julianpabloff@gmail.com" class="contact">
+					<img src="img/gmail.png" />
+					<h2>Email</h2>
+				</a>
+				<a href="https://www.linkedin.com/in/julianpabloff" target="_blank" class="contact">
+					<svg viewBox="0 0 34 34" style="color: #0a66c2;"><path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path></svg>
+					<h2>LinkedIn</h2>
+				</a>
+				<a href="https://github.com/julianpabloff" target="_blank" class="contact">
+					<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+					<h2>Github</h2>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- MODALS -->
+	<div id="modal-background">
+		<!-- WOOLLEY -->
+		<div id="woolley-modal" class="modal">
+			<div class="modal-image woolley-background">
+				<svg class="modal-exit" viewbox="0 0 24 24">
+					<path d="M12 10.586l7.293-7.293 1.414 1.414L13.414 12l7.293 7.293-1.414 1.414L12 13.414l-7.293 7.293-1.414-1.414L10.586 12 3.293 4.707l1.414-1.414L12 10.586z" fill="currentColor"></path>
+				</svg>
+			</div>
+			<div class="modal-body">
+				<header class="modal-main-element">
+					<h1 id="modal-title">Woolley Creative</h1>
+					<div class="deploy-button-container">
+						<a class="deploy-button github" href="https://github.com/julianpabloff/woolley_creative" target="_blank">
+							<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+							Github
+						</a>
+						<a class="deploy-button play" href="https://woolleycreative.com/" target="_blank">
+							<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="white" fill-rule="evenodd" d="M8 3.517a1 1 0 011.62-.784l5.348 4.233a1 1 0 010 1.568l-5.347 4.233A1 1 0 018 11.983v-1.545c-.76-.043-1.484.003-2.254.218-.994.279-2.118.857-3.506 1.99a.993.993 0 01-1.129.096.962.962 0 01-.445-1.099c.415-1.5 1.425-3.141 2.808-4.412C4.69 6.114 6.244 5.241 8 5.042V3.517zm1.5 1.034v1.2a.75.75 0 01-.75.75c-1.586 0-3.066.738-4.261 1.835a8.996 8.996 0 00-1.635 2.014c.878-.552 1.695-.916 2.488-1.138 1.247-.35 2.377-.33 3.49-.207a.75.75 0 01.668.745v1.2l4.042-3.2L9.5 4.55z" clip-rule="evenodd"/></svg>
+							Visit
+						</a>
+					</div>
+				</header>
+				<main>
+					<div class="modal-tech-icons">
+						<div class="modal-tech-icon">
+							<img src="img/technologies/html.png">
+							<p>HTML5</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/css.png">
+							<p>CSS3</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/javascript.png">
+							<p>Javascript</p>
+						</div>
+					</div>
+					<div class="modal-gallery modal-main-element">
+						<div class="modal-gallery-navbar">
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Expand</span>
+								</p>
+							</div>
+							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
+								<div class="indicator"></div>
+								<div class="buttons">
+									<button class="gallery-left">&lt;</button>
+									<button class="gallery-right">&gt;</button>
+								</div>
+							</div>
+						</div>
+						<div class="modal-gallery-images">
+							<div class="gallery-images-container">
+								<img class="gallery-img collapsed" src="img/woolley1.png">
+								<img class="gallery-img collapsed" src="img/woolley2.png">
+								<img class="gallery-img collapsed" src="img/woolley3.png">
+								<img class="gallery-img collapsed" src="img/woolley4.png">
+								<img class="gallery-img collapsed" src="img/woolley5.png">
+								<img class="gallery-img collapsed" src="img/woolley6.png">
+							</div>
+						</div>
+					</div>
+					<div class="modal-description modal-main-element">
+						<p>For this project I decided to make a custom single page application framework in raw Javascript, and make an animation framework on top of that. This site contains many different and interesting scroll animations that integrate with the client's site design.</p>
+					</div>
+				</main>
+				<div class="modal-background woolley-background"></div>
+			</div>
+		</div>
+
+		<!-- MORTGAGE -->
+		<div id="mortgage-modal" class="modal">
+			<div class="modal-image mortgage-background">
+				<svg class="modal-exit" viewbox="0 0 24 24">
+					<path d="M12 10.586l7.293-7.293 1.414 1.414L13.414 12l7.293 7.293-1.414 1.414L12 13.414l-7.293 7.293-1.414-1.414L10.586 12 3.293 4.707l1.414-1.414L12 10.586z" fill="currentColor"></path>
+				</svg>
+			</div>
+			<div class="modal-body">
+				<header class="modal-main-element">
+					<h1 id="modal-title">Counselors Mortgage</h1>
+					<div class="deploy-button-container">
+						<a class="deploy-button github" draggable="false" href="https://github.com/julianpabloff/counselors-mortgage" target="_blank">
+							<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+							Github
+						</a>
+						<a class="deploy-button play" href="https://counselorsmortgage.com/" target="_blank">
+							<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="white" fill-rule="evenodd" d="M8 3.517a1 1 0 011.62-.784l5.348 4.233a1 1 0 010 1.568l-5.347 4.233A1 1 0 018 11.983v-1.545c-.76-.043-1.484.003-2.254.218-.994.279-2.118.857-3.506 1.99a.993.993 0 01-1.129.096.962.962 0 01-.445-1.099c.415-1.5 1.425-3.141 2.808-4.412C4.69 6.114 6.244 5.241 8 5.042V3.517zm1.5 1.034v1.2a.75.75 0 01-.75.75c-1.586 0-3.066.738-4.261 1.835a8.996 8.996 0 00-1.635 2.014c.878-.552 1.695-.916 2.488-1.138 1.247-.35 2.377-.33 3.49-.207a.75.75 0 01.668.745v1.2l4.042-3.2L9.5 4.55z" clip-rule="evenodd"/></svg>
+							Visit
+						</a>
+					</div>
+				</header>
+				<main>
+					<div class="modal-tech-icons">
+						<div class="modal-tech-icon">
+							<img src="img/technologies/react.png">
+							<p>React</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/javascript.png">
+							<p>Javascript</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/html.png">
+							<p>HTML5</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/css.png">
+							<p>CSS3</p>
+						</div>
+					</div>
+					<div class="modal-gallery modal-main-element">
+						<div class="modal-gallery-navbar">
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Enlarge</span>
+								</p>
+							</div>
+							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
+								<div class="indicator"></div>
+								<div class="buttons">
+									<button class="gallery-left">&lt;</button>
+									<button class="gallery-right">&gt;</button>
+								</div>
+							</div>
+						</div>
+						<div class="modal-gallery-images">
+							<div class="gallery-images-container">
+								<img class="gallery-img collapsed" src="img/mortgage1.png">
+								<img class="gallery-img collapsed" src="img/mortgage2.png">
+								<img class="gallery-img collapsed" src="img/mortgage3.png">
+								<img class="gallery-img collapsed" src="img/mortgage4.png">
+								<img class="gallery-img collapsed" src="img/mortgage5.png">
+							</div>
+							<div class="image-scroll-layer"></div>
+						</div>
+					</div>
+					<div class="modal-description modal-main-element">
+						<p>This client just needed a simple one page site with some info and a contact form, so I quickly turned around a page with a nice looking design and some animation.</p>
+					</div>
+				</main>
+				<div class="modal-background mortgage-background"></div>
+			</div>
+		</div>
+
+		<!-- THOMPSON -->
+		<div id="thompson-modal" class="modal">
+			<div class="modal-image thompson-background">
+				<svg class="modal-exit" viewbox="0 0 24 24">
+					<path d="M12 10.586l7.293-7.293 1.414 1.414L13.414 12l7.293 7.293-1.414 1.414L12 13.414l-7.293 7.293-1.414-1.414L10.586 12 3.293 4.707l1.414-1.414L12 10.586z" fill="currentColor"></path>
+				</svg>
+			</div>
+			<div class="modal-body">
+				<header class="modal-main-element">
+					<h1 id="modal-title">Thompson Advisory</h1>
+					<div class="deploy-button-container">
+						<a class="deploy-button github" href="https://github.com/julianpabloff/thompson-advisory" target="_blank">
+							<svg viewBox="0 0 16 16" style="fill: white;"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+							Github
+						</a>
+						<a class="deploy-button play" href="https://thompsonadvisoryllc.com/" target="_blank">
+							<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="white" fill-rule="evenodd" d="M8 3.517a1 1 0 011.62-.784l5.348 4.233a1 1 0 010 1.568l-5.347 4.233A1 1 0 018 11.983v-1.545c-.76-.043-1.484.003-2.254.218-.994.279-2.118.857-3.506 1.99a.993.993 0 01-1.129.096.962.962 0 01-.445-1.099c.415-1.5 1.425-3.141 2.808-4.412C4.69 6.114 6.244 5.241 8 5.042V3.517zm1.5 1.034v1.2a.75.75 0 01-.75.75c-1.586 0-3.066.738-4.261 1.835a8.996 8.996 0 00-1.635 2.014c.878-.552 1.695-.916 2.488-1.138 1.247-.35 2.377-.33 3.49-.207a.75.75 0 01.668.745v1.2l4.042-3.2L9.5 4.55z" clip-rule="evenodd"/></svg>
+							Visit
+						</a>
+					</div>
+				</header>
+				<main>
+					<div class="modal-tech-icons">
+						<div class="modal-tech-icon">
+							<img src="img/technologies/html.png">
+							<p>HTML5</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/css.png">
+							<p>CSS3</p>
+						</div>
+						<div class="modal-tech-icon">
+							<img src="img/technologies/javascript.png">
+							<p>Javascript</p>
+						</div>
+					</div>
+					<div class="modal-gallery modal-main-element">
+						<div class="modal-gallery-navbar">
+							<div class="left-nav">
+								<h2>Gallery</h2>
+								<p class="img-toggle-btn">
+									<span class="image-toggle-btn-text">Expand</span>
+								</p>
+							</div>
+							<div class="nav-buttons">
+								<p class="image-counter">
+									<span class="image-index">1</span> of <span class="image-counter">4</span>
+								</p>
+								<div class="indicator"></div>
+								<div class="buttons">
+									<button class="gallery-left">&lt;</button>
+									<button class="gallery-right">&gt;</button>
+								</div>
+							</div>
+						</div>
+						<div class="modal-gallery-images">
+							<div class="gallery-images-container">
+								<img class="gallery-img collapsed" src="img/thompson1.png">
+								<img class="gallery-img collapsed" src="img/thompson2.png">
+							</div>
+						</div>
+					</div>
+					<div class="modal-description modal-main-element">
+						<p>This client just needed a simple one page site with some info and a contact form, so I quickly turned around a page with a nice looking design and some animation.</p>
+					</div>
+				</main>
+				<div class="modal-background thompson-background"></div>
+			</div>
+		</div>
+	</div>
+	<p id="tech-label"></p>
 </body>
