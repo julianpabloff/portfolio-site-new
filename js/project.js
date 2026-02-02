@@ -8,6 +8,11 @@ window.addEventListener('load', function() {
 	const modals = document.getElementById('modal-background').children;
 	let modalTransition = 300; // opacity transition
 
+	let windowWidth = document.documentElement.clientWidth;
+	let windowHeight = document.documentElement.clientHeight;
+	// let mobileMode = windowWidth < 990 || windowHeight < 990;
+	let mobileMode = false;
+
 	let htmlScrollPosition = html.scrollTop; // remember where html was at
 
 	let waitToCollapse = false;
@@ -277,10 +282,6 @@ window.addEventListener('load', function() {
 		if (event.target == backdrop) closeModal();
 	}, true);
 
-	let windowWidth = document.documentElement.clientWidth;
-	let windowHeight = document.documentElement.clientHeight;
-	// let mobileMode = windowWidth < 990 || windowHeight < 990;
-	let mobileMode = false;
 	window.addEventListener('resize', event => {
 		windowWidth = document.documentElement.clientWidth;
 		windowHeight = document.documentElement.clientHeight;

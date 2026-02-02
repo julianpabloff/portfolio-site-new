@@ -20,6 +20,10 @@ div.thumbnail {
 	width: 100%;
 	height: 210px;
 }
+div.bask-background {
+	background: url(../img/baskbikes.png) center;
+	background-size: cover;
+}
 div.mortgage-background {
 	background: url(../img/mortgage.png) center;
 	background-size: cover;
